@@ -1,0 +1,68 @@
+name: Nightly Tests
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Run at 2 AM UTC daily
+  workflow_dispatch:
+
+jobs:
+  nightly-regression:
+    name: Nightly Regression Tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Run full regression suite
+        run: npm run test:ui:regression
+        env:
+          ENV: prod
+          BASE_URL: ${{ secrets.PROD_URL || 'https://superbet.ro' }}
+          HEADLESS: true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-results-${{ matrix.browser }}
+          path: |
+            test-results/
+            playwright-report/
+            allure-results/
+
+      - name: Generate Allure Report
+        if: always()
+        run: npm run test:report:generate
+
+      - name: Push metrics to Grafana
+        if: always()
+        run: npm run push-metrics
+        env:
+          INFLUX_URL: ${{ secrets.INFLUX_URL }}
+          INFLUX_DB: ${{ secrets.INFLUX_DB }}
+          INFLUX_USER: ${{ secrets.INFLUX_USER }}
+          INFLUX_PASSWORD: ${{ secrets.INFLUX_PASSWORD }}
+
+      - name: Notify on failure
+        if: failure()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          text: 'Nightly tests failed on ${{ matrix.browser }}'
+          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}

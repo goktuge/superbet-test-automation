@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "lib": ["ES2022"],
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@tests/*": ["./tests/*"],
+      "@pages/*": ["./tests/ui/pages/*"],
+      "@components/*": ["./tests/ui/components/*"],
+      "@helpers/*": ["./tests/ui/helpers/*"],
+      "@fixtures/*": ["./tests/ui/fixtures/*"],
+      "@builders/*": ["./utils/builders/*"],
+      "@facades/*": ["./utils/facades/*"],
+      "@config/*": ["./config/*"],
+      "@utils/*": ["./utils/*"]
+    }
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "allure-results",
+    "allure-report",
+    "test-results",
+    "playwright-report"
+  ]
+}
