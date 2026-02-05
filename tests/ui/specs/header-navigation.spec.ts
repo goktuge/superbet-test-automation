@@ -53,7 +53,8 @@ test.describe('Header Navigation Tests', () => {
         expect(results.casinoLive).toBe(true);
       });
 
-      await allure.step('Verify Search icon', async () => {
+
+      await allure.step('Verify Search icon2', async () => {
         expect(results.search).toBe(true);
       });
 
