@@ -1,0 +1,21 @@
+[ConsentHelper] Starting cookie consent handling...
+[ConsentHelper] Waiting for consent popup to appear...
+[ConsentHelper] Checking if consent popup is visible...
+[ConsentHelper] Popup found with selector: [class*="cookie"]
+[ConsentHelper] Popup visible: true
+[ConsentHelper] Attempting to click accept button...
+[ConsentHelper] Trying 10 selectors...
+[ConsentHelper] Trying selector 1/10: #onetrust-accept-btn-handler
+[ConsentHelper]   Found 0 element(s) with this selector
+[ConsentHelper] Trying selector 2/10: #onetrust-accept-btn-handler
+[ConsentHelper]   Found 0 element(s) with this selector
+[ConsentHelper] Trying selector 3/10: button:has-text("Acceptați toate cookie-urile"), button:has-text("Acceptă toate")
+[ConsentHelper]   Found 0 element(s) with this selector
+[ConsentHelper] Trying selector 4/10: button:has-text("Acceptați toate cookie-urile")
+[ConsentHelper]   Found 1 element(s) with this selector
+[ConsentHelper]   Element visible: true
+[ConsentHelper]   ✅ Clicking button with text: "Acceptați toate cookie-urile"
+[ConsentHelper]   ✅ Successfully clicked!
+[ConsentHelper] Accept button clicked: true
+[ConsentHelper] Waiting for popup to disappear...
+[ConsentHelper] ✅ Cookie consent handled successfully

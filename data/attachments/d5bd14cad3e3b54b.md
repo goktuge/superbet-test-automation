@@ -1,0 +1,1049 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - link "acasă" [ref=e9]:
+          - /url: /
+          - img "superbet logo" [ref=e10]
+        - navigation:
+          - listitem [ref=e11]:
+            - link "sport" [ref=e13]:
+              - /url: /pariuri-sportive
+              - generic [ref=e14]: sport
+          - listitem [ref=e15]:
+            - link "live 154" [ref=e17]:
+              - /url: /pariuri-sportive/live
+              - generic [ref=e18]: live
+              - generic [ref=e20]: "154"
+          - listitem [ref=e21]:
+            - link "Supersocial" [ref=e23]:
+              - /url: /social/noutati
+              - generic [ref=e24]: Supersocial
+          - listitem [ref=e25]:
+            - link "Biletele mele 0" [ref=e27]:
+              - /url: /pariurile-mele/deschise
+              - generic [ref=e28]: Biletele mele
+              - generic [ref=e30]: "0"
+          - listitem [ref=e31]
+          - listitem [ref=e33]:
+            - link " casino" [ref=e34] [cursor=pointer]:
+              - /url: /casino
+              - generic [ref=e35]: 
+              - generic [ref=e36]: casino
+          - listitem [ref=e37]:
+            - link " casino live" [ref=e38] [cursor=pointer]:
+              - /url: /casino/casino-live
+              - generic [ref=e39]: 
+              - generic [ref=e40]: casino live
+      - generic [ref=e41]:
+        - link "Search" [ref=e42]:
+          - /url: /cautare
+          - button "Search" [ref=e43] [cursor=pointer]:
+            - generic [ref=e44]: 
+        - button "Toggle user dropdown" [ref=e46] [cursor=pointer]:
+          - generic [ref=e47]: 
+        - button "înregistrare" [ref=e50] [cursor=pointer]:
+          - generic [ref=e52]: înregistrare
+        - button "intră în cont" [ref=e53] [cursor=pointer]:
+          - generic [ref=e55]: intră în cont
+  - generic [ref=e56]:
+    - generic [ref=e61]:
+      - generic [ref=e62]: Sport
+      - generic [ref=e63]:
+        - link " Toate" [ref=e64] [cursor=pointer]:
+          - /url: /pariuri-sportive/astazi
+          - generic [ref=e65]:
+            - generic [ref=e66]: 
+            - generic [ref=e67]: Toate
+        - link " Fotbal" [ref=e68] [cursor=pointer]:
+          - /url: /pariuri-sportive/fotbal/astazi
+          - generic [ref=e69]:
+            - generic [ref=e70]: 
+            - generic [ref=e71]: Fotbal
+        - link " Tenis" [ref=e72] [cursor=pointer]:
+          - /url: /pariuri-sportive/tenis/astazi
+          - generic [ref=e73]:
+            - generic [ref=e74]: 
+            - generic [ref=e75]: Tenis
+        - link " eSport-Fotbal" [ref=e76] [cursor=pointer]:
+          - /url: /pariuri-sportive/esport-fotbal/astazi
+          - generic [ref=e77]:
+            - generic [ref=e78]: 
+            - generic [ref=e79]: eSport-Fotbal
+        - link " Baschet" [ref=e80] [cursor=pointer]:
+          - /url: /pariuri-sportive/baschet/astazi
+          - generic [ref=e81]:
+            - generic [ref=e82]: 
+            - generic [ref=e83]: Baschet
+        - link " Tenis de masă" [ref=e84] [cursor=pointer]:
+          - /url: /pariuri-sportive/tenis-de-masa/astazi
+          - generic [ref=e85]:
+            - generic [ref=e86]: 
+            - generic [ref=e87]: Tenis de masă
+        - link " Handbal" [ref=e88] [cursor=pointer]:
+          - /url: /pariuri-sportive/handbal/astazi
+          - generic [ref=e89]:
+            - generic [ref=e90]: 
+            - generic [ref=e91]: Handbal
+        - link " Volei" [ref=e92] [cursor=pointer]:
+          - /url: /pariuri-sportive/volei/astazi
+          - generic [ref=e93]:
+            - generic [ref=e94]: 
+            - generic [ref=e95]: Volei
+        - link " Counter-Strike 2" [ref=e96] [cursor=pointer]:
+          - /url: /pariuri-sportive/counter-strike-2/astazi
+          - generic [ref=e97]:
+            - generic [ref=e98]: 
+            - generic [ref=e99]: Counter-Strike 2
+        - link " eSport-Baschet" [ref=e100] [cursor=pointer]:
+          - /url: /pariuri-sportive/esport-baschet/astazi
+          - generic [ref=e101]:
+            - generic [ref=e102]: 
+            - generic [ref=e103]: eSport-Baschet
+        - link " Hochei" [ref=e104] [cursor=pointer]:
+          - /url: /pariuri-sportive/hochei/astazi
+          - generic [ref=e105]:
+            - generic [ref=e106]: 
+            - generic [ref=e107]: Hochei
+        - link " Darts" [ref=e108] [cursor=pointer]:
+          - /url: /pariuri-sportive/darts/astazi
+          - generic [ref=e109]:
+            - generic [ref=e110]: 
+            - generic [ref=e111]: Darts
+        - link " League of Legends" [ref=e112] [cursor=pointer]:
+          - /url: /pariuri-sportive/league-of-legends/astazi
+          - generic [ref=e113]:
+            - generic [ref=e114]: 
+            - generic [ref=e115]: League of Legends
+        - link " Dota 2" [ref=e116] [cursor=pointer]:
+          - /url: /pariuri-sportive/dota-2/astazi
+          - generic [ref=e117]:
+            - generic [ref=e118]: 
+            - generic [ref=e119]: Dota 2
+        - link " Volei pe plajă" [ref=e120] [cursor=pointer]:
+          - /url: /pariuri-sportive/volei-pe-plaja/astazi
+          - generic [ref=e121]:
+            - generic [ref=e122]: 
+            - generic [ref=e123]: Volei pe plajă
+        - link " Badminton" [ref=e124] [cursor=pointer]:
+          - /url: /pariuri-sportive/badminton/astazi
+          - generic [ref=e125]:
+            - generic [ref=e126]: 
+            - generic [ref=e127]: Badminton
+        - link " Valorant" [ref=e128] [cursor=pointer]:
+          - /url: /pariuri-sportive/valorant/astazi
+          - generic [ref=e129]:
+            - generic [ref=e130]: 
+            - generic [ref=e131]: Valorant
+        - link " eSport-Hochei" [ref=e132] [cursor=pointer]:
+          - /url: /pariuri-sportive/esport-hochei/astazi
+          - generic [ref=e133]:
+            - generic [ref=e134]: 
+            - generic [ref=e135]: eSport-Hochei
+    - generic [ref=e136]:
+      - generic:
+        - generic [ref=e140]:
+          - generic [ref=e141]: Găsiți biletul după cod
+          - generic [ref=e142]:
+            - generic [ref=e144] [cursor=pointer]: 
+            - textbox "Găsiți biletul după cod " [ref=e145]:
+              - /placeholder: Găsiți biletul după cod
+        - article [ref=e146]:
+          - generic [ref=e148]: Biletul este gol. Alege un eveniment din ofertă pentru a plasa un pariu.
+    - generic [ref=e149]:
+      - heading "Pariuri Live" [level=1] [ref=e154]
+      - generic [ref=e156]:
+        - button "Toate" [ref=e158] [cursor=pointer]:
+          - generic [ref=e159]: Toate
+        - button "Video" [ref=e161] [cursor=pointer]:
+          - generic [ref=e162]: Video
+        - combobox [ref=e164] [cursor=pointer]:
+          - generic [ref=e165]: Sortează după
+          - generic "Toggle dropdown": 
+    - main [ref=e166]:
+      - generic [ref=e168]:
+        - generic [ref=e174]:
+          - generic [ref=e176]:
+            - heading "Top Live" [level=2] [ref=e180] [cursor=pointer]
+            - generic [ref=e181]:
+              - button "Open Universitatea Craiova·Otelul Galati event page" [ref=e183] [cursor=pointer]:
+                - generic [ref=e184]:
+                  - generic [ref=e185]:
+                    - generic [ref=e186]: Fotbal
+                    - generic [ref=e187]: Romania
+                    - generic [ref=e188]: SuperLiga
+                  - link "Bet Builder " [ref=e190]:
+                    - /url: /cote/fotbal/universitatea-craiova-vs-otelul-galati-8956227/?t=offer-live-631&marketGroup=-2
+                    - button "Bet Builder " [ref=e191]:
+                      - generic [ref=e192]:
+                        - generic [ref=e193]: Bet Builder
+                        - generic [ref=e194]: 
+                - generic [ref=e195]:
+                  - generic [ref=e197]:
+                    - generic [ref=e198]:
+                      - generic [ref=e199]:
+                        - generic [ref=e200]:
+                          - generic [ref=e201]: Repriza 1
+                          - generic [ref=e202]: 19'
+                        - generic [ref=e203]: 
+                      - generic [ref=e204]:
+                        - generic [ref=e206]: Universitatea Craiova
+                        - generic [ref=e208]: Otelul Galati
+                    - generic [ref=e209]:
+                      - generic [ref=e210]:
+                        - generic [ref=e213]: R1
+                        - generic [ref=e215]:
+                          - generic [ref=e216]: "0"
+                          - generic [ref=e217]: "0"
+                      - button "pin" [ref=e219]:
+                        - generic [ref=e220]: 
+                  - generic [ref=e223]:
+                    - text: 
+                    - generic [ref=e224]:
+                      - generic [ref=e225]:
+                        - button "1 1.87" [ref=e227]:
+                          - generic [ref=e229]:
+                            - generic [ref=e230]: "1"
+                            - generic [ref=e232]: "1.87"
+                        - button "X 3.05" [ref=e234]:
+                          - generic [ref=e236]:
+                            - generic [ref=e237]: X
+                            - generic [ref=e239]: "3.05"
+                        - button "2 5.25" [ref=e241]:
+                          - generic [ref=e243]:
+                            - generic [ref=e244]: "2"
+                            - generic [ref=e246]: "5.25"
+                      - button "+237" [ref=e247]
+              - button "Open Kocaelispor·Besiktas event page" [ref=e249] [cursor=pointer]:
+                - generic [ref=e250]:
+                  - generic [ref=e251]:
+                    - generic [ref=e252]: Fotbal
+                    - generic [ref=e253]: Turcia
+                    - generic [ref=e254]: Cupa - Gr.C
+                  - link "Bet Builder " [ref=e256]:
+                    - /url: /cote/fotbal/kocaelispor-vs-besiktas-11735802/?t=offer-live-7448&marketGroup=-2
+                    - button "Bet Builder " [ref=e257]:
+                      - generic [ref=e258]:
+                        - generic [ref=e259]: Bet Builder
+                        - generic [ref=e260]: 
+                - generic [ref=e261]:
+                  - generic [ref=e263]:
+                    - generic [ref=e264]:
+                      - generic [ref=e265]:
+                        - generic [ref=e266]:
+                          - generic [ref=e267]: Repriza 2
+                          - generic [ref=e268]: 57'
+                        - generic [ref=e269]: 
+                      - generic [ref=e270]:
+                        - generic [ref=e272]: Kocaelispor
+                        - generic [ref=e274]: Besiktas
+                    - generic [ref=e275]:
+                      - generic [ref=e276]:
+                        - generic [ref=e279]: R1
+                        - generic [ref=e280]:
+                          - generic [ref=e281]:
+                            - generic [ref=e282]: "1"
+                            - generic [ref=e283]: "0"
+                          - generic [ref=e284]:
+                            - generic [ref=e285]: "1"
+                            - generic [ref=e286]: "0"
+                      - button "pin" [ref=e288]:
+                        - generic [ref=e289]: 
+                  - generic [ref=e292]:
+                    - text: 
+                    - generic [ref=e293]:
+                      - generic [ref=e294]:
+                        - button "1 1.60" [ref=e296]:
+                          - generic [ref=e298]:
+                            - generic [ref=e299]: "1"
+                            - generic [ref=e301]: "1.60"
+                        - button "X 3.30" [ref=e303]:
+                          - generic [ref=e305]:
+                            - generic [ref=e306]: X
+                            - generic [ref=e308]: "3.30"
+                        - button "2 7.00" [ref=e310]:
+                          - generic [ref=e312]:
+                            - generic [ref=e313]: "2"
+                            - generic [ref=e315]: "7.00"
+                      - button "+109" [ref=e316]
+              - button "Open Anastasia Potapova·Sorana Cirstea event page" [ref=e318] [cursor=pointer]:
+                - generic [ref=e320]:
+                  - generic [ref=e321]: Tenis
+                  - generic [ref=e322]: WTA
+                  - generic [ref=e323]: Cluj-Napoca (ROM)
+                - generic [ref=e324]:
+                  - generic [ref=e326]:
+                    - generic [ref=e327]:
+                      - generic [ref=e328]:
+                        - generic [ref=e330]: S1
+                        - generic [ref=e331]: 
+                      - generic [ref=e332]:
+                        - generic [ref=e334]: Anastasia Potapova
+                        - generic [ref=e336]: Sorana Cirstea
+                    - generic [ref=e337]:
+                      - generic [ref=e338]:
+                        - generic [ref=e340]:
+                          - generic [ref=e341]: G
+                          - generic [ref=e342]: S1
+                        - generic [ref=e343]:
+                          - generic [ref=e344]:
+                            - generic [ref=e345]: "0"
+                            - generic [ref=e346]: "0"
+                          - generic [ref=e347]:
+                            - generic [ref=e348]: "2"
+                            - generic [ref=e349]: "1"
+                      - button "pin" [ref=e351]:
+                        - generic [ref=e352]: 
+                  - generic [ref=e355]:
+                    - text: 
+                    - generic [ref=e356]:
+                      - generic [ref=e357]:
+                        - button "1 2.35" [ref=e359]:
+                          - generic [ref=e361]:
+                            - generic [ref=e362]: "1"
+                            - generic [ref=e364]: "2.35"
+                        - button "2 1.60" [ref=e366]:
+                          - generic [ref=e368]:
+                            - generic [ref=e369]: "2"
+                            - generic [ref=e371]: "1.60"
+                      - button "+80" [ref=e372]
+              - button "Open Liudmila Samsonova·Hailey Baptiste event page" [ref=e374] [cursor=pointer]:
+                - generic [ref=e376]:
+                  - generic [ref=e377]: Tenis
+                  - generic [ref=e378]: WTA
+                  - generic [ref=e379]: Abu Dhabi (EAU)
+                - generic [ref=e380]:
+                  - generic [ref=e382]:
+                    - generic [ref=e383]:
+                      - generic [ref=e384]:
+                        - generic [ref=e386]: S3
+                        - generic [ref=e387]: 
+                      - generic [ref=e388]:
+                        - generic [ref=e390]: Liudmila Samsonova
+                        - generic [ref=e392]: Hailey Baptiste
+                    - generic [ref=e393]:
+                      - generic [ref=e394]:
+                        - generic [ref=e396]:
+                          - generic [ref=e397]: G
+                          - generic [ref=e398]: S1
+                          - generic [ref=e399]: S2
+                          - generic [ref=e400]: S3
+                        - generic [ref=e401]:
+                          - generic [ref=e402]:
+                            - generic [ref=e403]: "0"
+                            - generic [ref=e404]: "0"
+                          - generic [ref=e405]:
+                            - generic [ref=e406]: "2"
+                            - generic [ref=e407]: "6"
+                          - generic [ref=e408]:
+                            - generic [ref=e409]: "6"
+                            - generic [ref=e410]: "4"
+                          - generic [ref=e411]:
+                            - generic [ref=e412]: "0"
+                            - generic [ref=e413]: "0"
+                      - button "pin" [ref=e415]:
+                        - generic [ref=e416]: 
+                  - generic [ref=e419]:
+                    - text: 
+                    - generic [ref=e420]:
+                      - generic [ref=e421]:
+                        - button "1 1.65" [ref=e423]:
+                          - generic [ref=e425]:
+                            - generic [ref=e426]: "1"
+                            - generic [ref=e428]: "1.65"
+                        - button "2 2.25" [ref=e430]:
+                          - generic [ref=e432]:
+                            - generic [ref=e433]: "2"
+                            - generic [ref=e435]: "2.25"
+                      - button "+66" [ref=e436]
+              - button "Open Linda Fruhvirtova·Katie Boulter event page" [ref=e438] [cursor=pointer]:
+                - generic [ref=e440]:
+                  - generic [ref=e441]: Tenis
+                  - generic [ref=e442]: WTA
+                  - generic [ref=e443]: Ostrava (CEH)
+                - generic [ref=e444]:
+                  - generic [ref=e446]:
+                    - generic [ref=e447]:
+                      - generic [ref=e448]:
+                        - generic [ref=e450]: S1
+                        - generic [ref=e451]: 
+                      - generic [ref=e452]:
+                        - generic [ref=e454]: Linda Fruhvirtova
+                        - generic [ref=e456]: Katie Boulter
+                    - generic [ref=e457]:
+                      - generic [ref=e458]:
+                        - generic [ref=e460]:
+                          - generic [ref=e461]: G
+                          - generic [ref=e462]: S1
+                        - generic [ref=e463]:
+                          - generic [ref=e464]:
+                            - generic [ref=e465]: "0"
+                            - generic [ref=e466]: "30"
+                          - generic [ref=e467]:
+                            - generic [ref=e468]: "3"
+                            - generic [ref=e469]: "5"
+                      - button "pin" [ref=e471]:
+                        - generic [ref=e472]: 
+                  - generic [ref=e475]:
+                    - text: 
+                    - generic [ref=e476]:
+                      - generic [ref=e477]:
+                        - button "1 " [disabled] [ref=e479]:
+                          - generic [ref=e481]:
+                            - generic [ref=e482]: "1"
+                            - generic [ref=e485]: 
+                        - button "2 " [disabled] [ref=e487]:
+                          - generic [ref=e489]:
+                            - generic [ref=e490]: "2"
+                            - generic [ref=e493]: 
+                      - button "+78" [ref=e494]
+              - button "Open Dubai·Real Madrid event page" [ref=e496] [cursor=pointer]:
+                - generic [ref=e498]:
+                  - generic [ref=e499]: Baschet
+                  - generic [ref=e500]: International
+                  - generic [ref=e501]: Euroliga
+                - generic [ref=e502]:
+                  - generic [ref=e504]:
+                    - generic [ref=e505]:
+                      - generic [ref=e506]:
+                        - generic [ref=e507]:
+                          - generic [ref=e508]: Q2
+                          - generic [ref=e509]: 11'
+                        - generic [ref=e510]: 
+                      - generic [ref=e511]:
+                        - generic [ref=e513]: Dubai
+                        - generic [ref=e515]: Real Madrid
+                    - generic [ref=e516]:
+                      - generic [ref=e517]:
+                        - generic [ref=e519]:
+                          - generic [ref=e520]: Q1
+                          - generic [ref=e521]: Q2
+                        - generic [ref=e522]:
+                          - generic [ref=e523]:
+                            - generic [ref=e524]: "11"
+                            - generic [ref=e525]: "19"
+                          - generic [ref=e526]:
+                            - generic [ref=e527]: "0"
+                            - generic [ref=e528]: "0"
+                          - generic [ref=e529]:
+                            - generic [ref=e530]: "11"
+                            - generic [ref=e531]: "19"
+                      - button "pin" [ref=e533]:
+                        - generic [ref=e534]: 
+                  - generic [ref=e537]:
+                    - text: 
+                    - generic [ref=e538]:
+                      - generic [ref=e539]:
+                        - button "1 4.00" [ref=e541]:
+                          - generic [ref=e543]:
+                            - generic [ref=e544]: "1"
+                            - generic [ref=e546]: "4.00"
+                        - button "2 1.25" [ref=e548]:
+                          - generic [ref=e550]:
+                            - generic [ref=e551]: "2"
+                            - generic [ref=e553]: "1.25"
+                      - button "+34" [ref=e554]
+              - button "Open Fenerbahce·Spor Toto event page" [ref=e556] [cursor=pointer]:
+                - generic [ref=e558]:
+                  - generic [ref=e559]: Volei
+                  - generic [ref=e560]: Turcia
+                  - generic [ref=e561]: Cupa
+                - generic [ref=e562]:
+                  - generic [ref=e564]:
+                    - generic [ref=e565]:
+                      - generic [ref=e566]:
+                        - generic [ref=e568]: S3
+                        - generic [ref=e569]: 
+                      - generic [ref=e570]:
+                        - generic [ref=e572]: Fenerbahce
+                        - generic [ref=e574]: Spor Toto
+                    - generic [ref=e575]:
+                      - generic [ref=e576]:
+                        - generic [ref=e578]:
+                          - generic [ref=e579]: S1
+                          - generic [ref=e580]: S2
+                          - generic [ref=e581]: S3
+                        - generic [ref=e582]:
+                          - generic [ref=e583]:
+                            - generic [ref=e584]: "25"
+                            - generic [ref=e585]: "20"
+                          - generic [ref=e586]:
+                            - generic [ref=e587]: "19"
+                            - generic [ref=e588]: "25"
+                          - generic [ref=e589]:
+                            - generic [ref=e590]: "16"
+                            - generic [ref=e591]: "12"
+                      - button "pin" [ref=e593]:
+                        - generic [ref=e594]: 
+                  - generic [ref=e597]:
+                    - text: 
+                    - generic [ref=e598]:
+                      - generic [ref=e599]:
+                        - button "1 1.25" [ref=e601]:
+                          - generic [ref=e603]:
+                            - generic [ref=e604]: "1"
+                            - generic [ref=e606]: "1.25"
+                        - button "2 3.75" [ref=e608]:
+                          - generic [ref=e610]:
+                            - generic [ref=e611]: "2"
+                            - generic [ref=e613]: "3.75"
+                      - button "+14" [ref=e614]
+              - button "Open illwill·ECSTATIC event page" [ref=e616] [cursor=pointer]:
+                - generic [ref=e618]:
+                  - generic [ref=e619]: Counter-Strike 2
+                  - generic [ref=e620]: NODWIN Gaming
+                  - generic [ref=e621]: NODWIN Clutch Seri…
+                - generic [ref=e622]:
+                  - generic [ref=e624]:
+                    - generic [ref=e625]:
+                      - generic [ref=e626]:
+                        - generic [ref=e628]: M2
+                        - generic [ref=e629]: 
+                      - generic [ref=e630]:
+                        - generic [ref=e632]: illwill
+                        - generic [ref=e634]: ECSTATIC
+                    - generic [ref=e635]:
+                      - generic [ref=e638]:
+                        - generic [ref=e639]:
+                          - generic [ref=e640]: "2"
+                          - generic [ref=e641]: "0"
+                        - generic [ref=e642]:
+                          - generic [ref=e643]: "1"
+                          - generic [ref=e644]: "0"
+                      - button "pin" [ref=e646]:
+                        - generic [ref=e647]: 
+                  - generic [ref=e650]:
+                    - text: 
+                    - generic [ref=e651]:
+                      - generic [ref=e652]: Apasă aici pentru a vedea toate tipurile de pariuri live disponibile!
+                      - button "+12" [ref=e653]
+          - generic [ref=e655]:
+            - generic [ref=e657]:
+              - heading "Fotbal - Romania - SuperLiga" [level=2] [ref=e661] [cursor=pointer]
+              - generic [ref=e663]:
+                - button "chevron right" [ref=e664] [cursor=pointer]:
+                  - generic [ref=e665]: 
+                - button "favorite" [ref=e667] [cursor=pointer]:
+                  - generic [ref=e668]: 
+            - button "Open Universitatea Craiova·Otelul Galati event page" [ref=e671] [cursor=pointer]:
+              - generic [ref=e672]:
+                - generic [ref=e674]:
+                  - generic [ref=e675]:
+                    - generic [ref=e676]:
+                      - generic [ref=e677]:
+                        - generic [ref=e678]: Repriza 1
+                        - generic [ref=e679]: 19'
+                      - generic [ref=e680]: 
+                    - generic [ref=e681]:
+                      - generic [ref=e683]: Universitatea Craiova
+                      - generic [ref=e685]: Otelul Galati
+                  - generic [ref=e686]:
+                    - link "Bet Builder " [ref=e688]:
+                      - /url: /cote/fotbal/universitatea-craiova-vs-otelul-galati-8956227/?t=offer-live-631&marketGroup=-2
+                      - button "Bet Builder " [ref=e689]:
+                        - generic [ref=e690]:
+                          - generic [ref=e691]: Bet Builder
+                          - generic [ref=e692]: 
+                    - generic [ref=e693]:
+                      - generic [ref=e696]: R1
+                      - generic [ref=e698]:
+                        - generic [ref=e699]: "0"
+                        - generic [ref=e700]: "0"
+                    - button "pin" [ref=e702]:
+                      - generic [ref=e703]: 
+                - generic [ref=e706]:
+                  - text: 
+                  - generic [ref=e707]:
+                    - generic [ref=e708]:
+                      - button "1 1.87" [ref=e710]:
+                        - generic [ref=e712]:
+                          - generic [ref=e713]: "1"
+                          - generic [ref=e715]: "1.87"
+                      - button "X 3.05" [ref=e717]:
+                        - generic [ref=e719]:
+                          - generic [ref=e720]: X
+                          - generic [ref=e722]: "3.05"
+                      - button "2 5.25" [ref=e724]:
+                        - generic [ref=e726]:
+                          - generic [ref=e727]: "2"
+                          - generic [ref=e729]: "5.25"
+                    - button "+237" [ref=e730]
+          - generic [ref=e732]:
+            - generic [ref=e734]:
+              - heading "Fotbal - Turcia - Cupa - Gr.C" [level=2] [ref=e738] [cursor=pointer]
+              - generic [ref=e740]:
+                - button "chevron right" [ref=e741] [cursor=pointer]:
+                  - generic [ref=e742]: 
+                - button "favorite" [ref=e744] [cursor=pointer]:
+                  - generic [ref=e745]: 
+            - button "Open Kocaelispor·Besiktas event page" [ref=e748] [cursor=pointer]:
+              - generic [ref=e749]:
+                - generic [ref=e751]:
+                  - generic [ref=e752]:
+                    - generic [ref=e753]:
+                      - generic [ref=e754]:
+                        - generic [ref=e755]: Repriza 2
+                        - generic [ref=e756]: 57'
+                      - generic [ref=e757]: 
+                    - generic [ref=e758]:
+                      - generic [ref=e760]: Kocaelispor
+                      - generic [ref=e762]: Besiktas
+                  - generic [ref=e763]:
+                    - link "Bet Builder " [ref=e765]:
+                      - /url: /cote/fotbal/kocaelispor-vs-besiktas-11735802/?t=offer-live-7448&marketGroup=-2
+                      - button "Bet Builder " [ref=e766]:
+                        - generic [ref=e767]:
+                          - generic [ref=e768]: Bet Builder
+                          - generic [ref=e769]: 
+                    - generic [ref=e770]:
+                      - generic [ref=e773]: R1
+                      - generic [ref=e774]:
+                        - generic [ref=e775]:
+                          - generic [ref=e776]: "1"
+                          - generic [ref=e777]: "0"
+                        - generic [ref=e778]:
+                          - generic [ref=e779]: "1"
+                          - generic [ref=e780]: "0"
+                    - button "pin" [ref=e782]:
+                      - generic [ref=e783]: 
+                - generic [ref=e786]:
+                  - text: 
+                  - generic [ref=e787]:
+                    - generic [ref=e788]:
+                      - button "1 1.60" [ref=e790]:
+                        - generic [ref=e792]:
+                          - generic [ref=e793]: "1"
+                          - generic [ref=e795]: "1.60"
+                      - button "X 3.30" [ref=e797]:
+                        - generic [ref=e799]:
+                          - generic [ref=e800]: X
+                          - generic [ref=e802]: "3.30"
+                      - button "2 7.00" [ref=e804]:
+                        - generic [ref=e806]:
+                          - generic [ref=e807]: "2"
+                          - generic [ref=e809]: "7.00"
+                    - button "+109" [ref=e810]
+          - generic [ref=e812]:
+            - generic [ref=e814]:
+              - heading "Fotbal - Arabia Saudita - Pro League" [level=2] [ref=e818] [cursor=pointer]
+              - generic [ref=e820]:
+                - button "chevron right" [ref=e821] [cursor=pointer]:
+                  - generic [ref=e822]: 
+                - button "favorite" [ref=e824] [cursor=pointer]:
+                  - generic [ref=e825]: 
+            - button "Open Al Fayha·Al Najma event page" [ref=e828] [cursor=pointer]:
+              - generic [ref=e829]:
+                - generic [ref=e831]:
+                  - generic [ref=e832]:
+                    - generic [ref=e834]:
+                      - generic [ref=e835]: Pauză
+                      - generic [ref=e836]: 45'
+                    - generic [ref=e837]:
+                      - generic [ref=e839]: Al Fayha
+                      - generic [ref=e841]: Al Najma
+                  - generic [ref=e842]:
+                    - link "Bet Builder " [ref=e844]:
+                      - /url: /cote/fotbal/al-fayha-vs-al-najma-11847231/?t=offer-live-33&marketGroup=-2
+                      - button "Bet Builder " [ref=e845]:
+                        - generic [ref=e846]:
+                          - generic [ref=e847]: Bet Builder
+                          - generic [ref=e848]: 
+                    - generic [ref=e849]:
+                      - generic [ref=e852]: R1
+                      - generic [ref=e854]:
+                        - generic [ref=e855]: "2"
+                        - generic [ref=e856]: "0"
+                    - button "pin" [ref=e858]:
+                      - generic [ref=e859]: 
+                - generic [ref=e862]:
+                  - text: 
+                  - generic [ref=e863]:
+                    - generic [ref=e864]:
+                      - button "1 1.03" [ref=e866]:
+                        - generic [ref=e868]:
+                          - generic [ref=e869]: "1"
+                          - generic [ref=e871]: "1.03"
+                      - button "X 14.00" [ref=e873]:
+                        - generic [ref=e875]:
+                          - generic [ref=e876]: X
+                          - generic [ref=e878]: "14.00"
+                      - button "2 40.00" [ref=e880]:
+                        - generic [ref=e882]:
+                          - generic [ref=e883]: "2"
+                          - generic [ref=e885]: "40.00"
+                    - button "+95" [ref=e886]
+        - generic [ref=e887]:
+          - generic [ref=e888]:
+            - heading "Pariuri sportive live" [level=2] [ref=e889]
+            - paragraph [ref=e890]: Superbet este cel mai bun loc pentru a trăi la intensitate maximă pasiunea ta pentru sport! Site-ul, aplicația și agențiile Superbet sunt punctele de întâlnire a celor mai buni pariori din România în căutare de SuperBilete câștigătoare și a celor mai bune cote la pariuri sportive live!
+            - paragraph [ref=e891]: "Asta pentru că cel mai bun site de pariuri live îți oferă o experiență totală: sute de opțiuni de pariere pentru zeci de sporturi, posibilitatea de a urmări meciurile în direct pe site și în aplicație prin livestream precum și rezultate pariuri live, cash out și alte beneficii de care se bucură, zilnic, sute de mii de fani ai sportului!"
+            - heading "Cele mai populare pariuri live" [level=2] [ref=e892]
+            - paragraph [ref=e893]:
+              - text: Când vorbim despre
+              - link "pariuri sportive online" [ref=e894]:
+                - /url: https://superbet.ro/
+              - text: ", emoțiile sunt la un alt nivel când intri în mijlocul acțiunii. Pariurile live îți permit să te bucuri de orice răsturnare de scor din timpul unui meci, mai ales dacă aceasta vine din partea favoriților. Pe lângă aceasta, îți oferă un dublu confort: acela de a urmări meciul relaxat, dar și pe cel de a lua o hotărâre în cunoștință de cauză."
+            - paragraph [ref=e895]: Ai mai multe șanse de a-ți pune în valoare intuiția, mai ales în condițiile în care iei decizii rapide și inspirate chiar în timpul jocului. Marja de eroare e mai mică la pariuri sportive live online, dar și satisfacția e la alt nivel!
+            - heading "Pariuri live fotbal" [level=3] [ref=e896]:
+              - strong [ref=e897]: Pariuri live fotbal
+            - paragraph [ref=e898]:
+              - link "Pariuri live fotbal" [ref=e899]:
+                - /url: https://superbet.ro/pariuri-sportive/fotbal/live
+              - text: "- sportul rege atrage și oferă cele mai mari emoții și este tratat ca atare pe Superbet, unde ai sute de opțiuni de pariuri live online pentru fiecare meci și streaming pentru competițiile de top."
+            - paragraph [ref=e900]: Dintre cele mai populare pariuri live, 1X2 este cel mai îndrăgit de către amatorii de fotbal, fiindcă adesea rezultatul poate fi influențat de un eveniment neprevăzut. Apoi urmează Total Goluri, în care un parior înzestrat încearcă să intuiască corect numărul de goluri înscrise în meci, precum și opțiunile Sub X Goluri și Peste X Goluri.
+            - heading "Pariuri live tenis" [level=3] [ref=e901]:
+              - strong [ref=e902]: Pariuri live tenis
+            - paragraph [ref=e903]:
+              - link "Pariuri live tenis" [ref=e904]:
+                - /url: https://superbet.ro/pariuri-sportive/tenis/live
+              - text: "- sportul Alb se bucură și el de o popularitate ridicată pe Superbet și vine, de asemenea, cu o mulțime de opțiuni pentru pariuri live și streaming la competițiile de top. Marele avantaj al pariurilor live pe tenis este că ai oportunitatea de a prinde cote mai mari decât la startul partidei."
+            - paragraph [ref=e905]: În topul preferințelor este Câștigătorul Meciului, cu alte cuvinte 1X2, unde se indică rezultatul final al meciului, urmat de pariurile live pe câștigătorul unui set și câștigătorul unui game.
+            - heading "Pariuri live baschet" [level=3] [ref=e906]:
+              - strong [ref=e907]: Pariuri live baschet
+            - paragraph [ref=e908]:
+              - link "Pariuri live baschet" [ref=e909]:
+                - /url: https://superbet.ro/pariuri-sportive/baschet/live
+              - text: "- Slam dunk-urile spectaculoase și coșurile de trei puncte fac deliciul fanilor baschetului, un alt sport care atrage emoții și creează pasiuni. Iar pe parcursul unui meci apar oportunităţi de pariere live precum clasicul câștigătorul meciului, prima echipă care ajunge la 20 de puncte în sfertul în desfăşurare, total puncte marcate în primele două sferturi sau total puncte pe fiecare sfert în parte."
+            - heading "Pariuri live handbal" [level=3] [ref=e910]:
+              - strong [ref=e911]: Pariuri live handbal
+            - paragraph [ref=e912]:
+              - link "Pariuri live handbal" [ref=e913]:
+                - /url: https://superbet.ro/pariuri-sportive/handbal/live
+              - text: "- un sport plin de pasiune și energie, spectacolul pe semicerc atrage atenția nu doar a iubitorilor de competiții intense, ci și a pasionaților de pariuri sportive. Printre cele mai populare pariuri live handbal se numără rezultatul final (1X2), pariurile cu handicap, pariurile pe totalul golurilor, și cele pe marcatori."
+            - heading "Pariuri live ESport-Fotbal" [level=3] [ref=e914]:
+              - strong [ref=e915]: Pariuri live ESport-Fotbal
+            - paragraph [ref=e916]:
+              - link "Pariurile live ESport-Fotbal" [ref=e917]:
+                - /url: https://superbet.ro/pariuri-sportive/esport-fotbal/live
+              - text: "- au căpătat o notorietate extraordinară în ultimul deceniu, iar dintre acestea nu putea lipsi sportul rege sub forma turneelor FC, unde în preferințele pentru pariuri live regăsim 1X2 și pariurile pe goluri."
+            - heading "Cele mai populare competiții pe care să plasezi pariuri live" [level=2] [ref=e918]
+            - paragraph [ref=e919]: Cu cât o competiția sportivă e mai prestigioasă și adună la start sportivi de top, cu atât va fi mai atractivă și pentru pariurile sportive live.
+            - list [ref=e920]:
+              - listitem [ref=e921]:
+                - link "Pariuri Champions League" [ref=e922]:
+                  - /url: https://superbet.ro/pariuri-sportive/fotbal/international-cluburi/uefa-liga-campionilor/toate
+                - text: "- cea mai importantă competiţie de fotbal intercluburi din lume oferă de fiecare dată tot ce îşi poate dori un pasionat de fotbal."
+              - listitem [ref=e923]:
+                - link "Pariuri Superliga" [ref=e924]:
+                  - /url: https://superbet.ro/pariuri-sportive/fotbal/romania/superliga/toate
+                - text: "- la Superbet ai în exclusivitate streaming live pentru SuperLiga pentru o experiență live la cele mai mari cote."
+              - listitem [ref=e925]:
+                - link "Pariuri Premier League" [ref=e926]:
+                  - /url: https://superbet.ro/pariuri-sportive/fotbal/anglia/premier-league/toate
+                - text: "- campionatul englez de fotbal este una dintre cele mai importante competiții de fotbal din lume și în topul preferințelor pentru o experiență live."
+              - listitem [ref=e927]:
+                - link "Pariuri La Liga" [ref=e928]:
+                  - /url: https://superbet.ro/pariuri-sportive/fotbal/spania/laliga/toate
+                - text: "- competiția la care Superbet a devenit partener oficial în România se desfășoară cu sute de opțiuni la pariuri live și posibilitatea de a urmări meciurile cu livestream."
+            - heading "Tipuri de pariuri live preferate la Superbet" [level=2] [ref=e929]
+            - paragraph [ref=e930]: Indiferent ce sport sau competiție preferi, esențial e feeling-ul, dar la fel de importante sunt informațiile și statisticile pentru fiecare competiție, așa cum le ai la dispoziție pe Superbet, alături de cea mai diversificată ofertă de pariuri sportive live.
+            - paragraph [ref=e931]:
+              - strong [ref=e932]: "În topul preferințelor pentru vânătorii de SuperBilete live enumerăm:"
+            - list [ref=e933]:
+              - listitem [ref=e934]:
+                - link "Pariurile pe rezultat final 1X2" [ref=e935]:
+                  - /url: https://superbet.ro/wiki/pariuri-1x2
+                - text: "– este prima selecţie pe care o vezi în oferta live în timpul oricărui meci şi, de altfel, cea mai intuitivă. Pariezi pe modul în care simți că se va termina partida: vor câştiga gazdele (1), va fi egal (X) sau vor câştiga oaspeţi (2)."
+              - listitem [ref=e936]: Total goluri – aici mizezi pe intuiția ta asupra numărului de goluri marcate în meci și te poți folosi de streaming pentru a urmări acțiunea. Dacă partida e echilibrată, fără mari ocazii de gol, poți opta pentru Sub X Goluri sau dacă duelul e spectaculos, cu multe ocazii, poți merge pe opțiunea Peste X Goluri.
+              - listitem [ref=e937]: Câștigătorul meciului la tenis/baschet - Tenisul și baschetul sunt două dintre cele mai căutate discipline când vine vorba despre pariurile live la Superbet. Ambele sporturi sunt foarte dinamice, vin cu multe schimbări de situație și nu de puține ori favoriții au probleme în a se ridica la nivelul așteptărilor.
+            - paragraph [ref=e938]:
+              - strong [ref=e939]:
+                - text: Consultă
+                - link "ghidurile Superbet" [ref=e940]:
+                  - /url: https://superbet.ro/wiki/ghiduri-superbet
+                - text: pentru a fi informat înainte de a plasa pariuri live.
+            - heading "Plasează pariuri live din aplicația Superbet" [level=2] [ref=e941]
+            - paragraph [ref=e942]:
+              - link "Aplicația Superbet de pariuri sportive" [ref=e943]:
+                - /url: https://apps.superbet.ro/
+              - text: îți transformă experiența în una mai rapidă și mai eficientă! Ai acces instant la mii de evenimente, mii de opțiuni pentru pariuri live, SuperSocial, cea mai mare rețea a pariorilor din România. Mai mult, ai statistici live, streaming și toate informațiile de care ai nevoie pentru SuperBilete pe evenimentele live.
+            - paragraph [ref=e944]:
+              - strong [ref=e945]:
+                - text: În plus, o superexperiență îi așteaptă și pe amatorii de sloturi și
+                - link "casino live" [ref=e946]:
+                  - /url: https://superbet.ro/casino/casino-live
+                - text: "!"
+            - heading "Întrebări frecvente despre pariurile sportive live" [level=2] [ref=e947]
+            - heading "1. Cum se joacă la pariuri live?" [level=3] [ref=e948]
+            - paragraph [ref=e949]:
+              - text: Primul pas este să îți faci un
+              - link "cont nou" [ref=e950]:
+                - /url: https://superbet.ro/inregistrare
+              - text: pe Superbet, îți alegi oferta de bun venit de până la 500 de lei
+              - link "bonus de bun venit sport" [ref=e951]:
+                - /url: https://superbet.ro/wiki/bonus-de-bun-venit-sport
+              - text: și ești gata să intri în acțiune!
+            - heading "2. Cum sa câștigi la pariuri live?" [level=3] [ref=e952]
+            - paragraph [ref=e953]: Pe Superbet ai tot arsenalul pentru lua decizii informate pentru biletele tale de pariuri live, începând de la statistici, avancronici și până la SuperSocial, o sursă nelimitată de inspirație pentru SuperBilete.
+            - heading "3. Care sunt cele mai populare pariuri sportive live?" [level=3] [ref=e954]
+            - paragraph [ref=e955]: Pariurile pe rezultatul final al unui meci de fotbal, tenis sau baschet, pariurile pe goluri, total game-uri și total puncte sunt mereu în top în oferta de pariuri live.
+            - heading "4. Cele mai populare sporturi pe care poți plasa pariuri live?" [level=3] [ref=e956]
+            - paragraph [ref=e957]: Fotbal live, Tenis live, Baschet live, Handbal live, ESport live.
+            - heading "5. Unde pot vedea pariuri sportive rezultate live?" [level=3] [ref=e958]
+            - paragraph [ref=e959]: În secțiunea Live găsești tot ce ține de pariuri rezultate live.
+            - heading "6. Cum sunt calculate pariuri sportive live cote?" [level=3] [ref=e960]
+            - paragraph [ref=e961]: Când vorbim de cote pariuri sportive live, acestea sunt dinamice, se actualizează constant în funcție de parcursul meciului și îți permit să profiți de cote mai mari decât înainte de startul evenimentului.
+          - button "Încarcă mai multe" [ref=e962] [cursor=pointer]:
+            - generic [ref=e964]: Încarcă mai multe
+  - contentinfo [ref=e965]:
+    - generic [ref=e967]:
+      - generic [ref=e969]:
+        - generic [ref=e970]:
+          - generic [ref=e971]:
+            - generic [ref=e972]:
+              - generic [ref=e974]: Despre Superbet
+              - list [ref=e975]:
+                - listitem [ref=e976]:
+                  - link "despre noi" [ref=e977]:
+                    - /url: /wiki/despre-noi
+                - listitem [ref=e978]:
+                  - link "agenții" [ref=e979]:
+                    - /url: /agentii
+                - listitem [ref=e980]:
+                  - link "ajutor" [ref=e981]:
+                    - /url: /wiki/ajutor
+                - listitem [ref=e982]:
+                  - link "protecția datelor" [ref=e983]:
+                    - /url: /wiki/declaratia-de-confidentialitate
+                - listitem [ref=e984]:
+                  - link "Politica de utilizare a cookie-urilor" [ref=e985]:
+                    - /url: /wiki/politica-de-utilizare-a-cookie-urilor
+                - listitem [ref=e986]:
+                  - link "joc responsabil" [ref=e987]:
+                    - /url: /wiki/joc-responsabil
+                - listitem [ref=e988]:
+                  - link "Politica împotriva spălării banilor" [ref=e989]:
+                    - /url: /wiki/politica-impotriva-spalarii-banilor
+                - listitem [ref=e990]:
+                  - link "regulamente de joc" [ref=e991]:
+                    - /url: /wiki/regulamente-de-joc
+                - listitem [ref=e992]:
+                  - link "Termene și condiții" [ref=e993]:
+                    - /url: /wiki/termeni-si-conditii
+                - listitem [ref=e994]:
+                  - link "Licenta" [ref=e995]:
+                    - /url: https://superbet.ro/static/document/licenta-2024.pdf
+                - listitem [ref=e996]:
+                  - link "Decizie autorizare" [ref=e997]:
+                    - /url: https://superbet.ro/static/document/decizie-autorizare-2025.pdf
+            - generic [ref=e998]:
+              - generic [ref=e1000]: Sponsorizări
+              - generic [ref=e1001]: "Susținem cu mândrie:"
+              - list [ref=e1002]:
+                - listitem [ref=e1003]:
+                  - link "Open Superliga page" [ref=e1004]:
+                    - /url: https://lpf.ro/liga-1
+                    - img "Superliga" [ref=e1005]
+                - listitem [ref=e1006]:
+                  - link "Open La Liga page" [ref=e1007]:
+                    - /url: https://www.laliga.com/en-GB
+                    - img "La Liga" [ref=e1008]
+                - listitem [ref=e1009]:
+                  - link "Open FC Rapid page" [ref=e1010]:
+                    - /url: https://www.fcrapid.ro/
+                    - img "FC Rapid" [ref=e1011]
+                - listitem [ref=e1012]:
+                  - link "Open FC Dinamo page" [ref=e1013]:
+                    - /url: https://dinamo1948.ro/
+                    - img "FC Dinamo" [ref=e1014]
+                - listitem [ref=e1015]:
+                  - link "Open Cracovia page" [ref=e1016]:
+                    - /url: https://www.ucv1948.ro
+                    - img "Cracovia" [ref=e1017]
+                - listitem [ref=e1018]:
+                  - link "Open Farul Constanta page" [ref=e1019]:
+                    - /url: https://www.farulconstanta.com/
+                    - img "Farul Constanta" [ref=e1020]
+                - listitem [ref=e1021]:
+                  - link "Open U Cluj page" [ref=e1022]:
+                    - /url: https://www.fcucluj.ro/
+                    - img "U Cluj" [ref=e1023]
+                - listitem [ref=e1024]:
+                  - link "Open Transylvania Open page" [ref=e1025]:
+                    - /url: https://transylvaniaopen.ro/
+                    - img "Transylvania Open" [ref=e1026]
+                - listitem [ref=e1027]:
+                  - link "Open Superliga Feminina page" [ref=e1028]:
+                    - /url: https://www.facebook.com/superligafemininaromania/
+                    - img "Superliga Feminina" [ref=e1029]
+                - listitem [ref=e1030]:
+                  - link "Open CS Dinamo page" [ref=e1031]:
+                    - /url: http://www.csdinamo.eu/
+                    - img "CS Dinamo" [ref=e1032]
+                - listitem [ref=e1033]:
+                  - link "Open CS Rapid page" [ref=e1034]:
+                    - /url: https://csrapid.ro/
+                    - img "CS Rapid" [ref=e1035]
+                - listitem [ref=e1036]:
+                  - link "Open DFS Fighting page" [ref=e1037]:
+                    - /url: https://dynamitefighting.com/
+                    - img "DFS Fighting" [ref=e1038]
+                - listitem [ref=e1039]:
+                  - link "Open Sao Paulo FC page" [ref=e1040]:
+                    - /url: https://www.saopaulofc.net/spfc
+                    - img "Sao Paulo FC" [ref=e1041]
+                - listitem [ref=e1042]:
+                  - link "Open Fluminense page" [ref=e1043]:
+                    - /url: https://www.fluminense.com.br/site/
+                    - img "Fluminense" [ref=e1044]
+                - listitem [ref=e1045]:
+                  - link "Open Gloria Bistrita page" [ref=e1046]:
+                    - /url: https://gloria2018.ro/
+                    - img "Gloria Bistrita" [ref=e1047]
+                - listitem [ref=e1048]:
+                  - link "Open SuperChess page" [ref=e1049]:
+                    - /url: https://www.superchess.ro/
+                    - img "SuperChess" [ref=e1050]
+                - listitem [ref=e1051]:
+                  - link "Open Lech Poznań page" [ref=e1052]:
+                    - /url: https://www.lechpoznan.pl
+                    - img "Lech Poznań" [ref=e1053]
+                - listitem [ref=e1054]:
+                  - link "Open SS Politehnica Timisoara page" [ref=e1055]:
+                    - /url: https://www.sspolitehnica.ro
+                    - img "SS Politehnica Timisoara" [ref=e1056]
+          - generic [ref=e1057]:
+            - generic [ref=e1058]:
+              - generic [ref=e1060]: Disponibil în
+              - generic [ref=e1061]:
+                - link "Google Play Sport app" [ref=e1062]:
+                  - /url: https://play.google.com/store/apps/details?id=ro.superbet.sport
+                - link "Google Play Casino app" [ref=e1063]:
+                  - /url: https://play.google.com/store/apps/details?id=ro.superbet.games&pli=1
+              - generic [ref=e1064]:
+                - link "App Store Sport app" [ref=e1065]:
+                  - /url: https://apps.apple.com/ro/app/superbet-sport/id1314878525
+                - link "App Store Casino app" [ref=e1066]:
+                  - /url: https://apps.apple.com/ro/app/superbet-casino-poker-slots/id1447417739
+              - generic [ref=e1067]:
+                - link "App Gallery Sport app" [ref=e1068]:
+                  - /url: https://appgallery.huawei.com/app/C102997357
+                - link "App Gallery Casino app" [ref=e1069]:
+                  - /url: https://appgallery.huawei.com/app/C103988579
+            - generic [ref=e1070]:
+              - generic [ref=e1072]: metode de plată
+              - list [ref=e1073]:
+                - listitem [ref=e1074]:
+                  - link "Open pam.paymentProvidersName.cash" [ref=e1075]:
+                    - /url: /wiki/metode-de-plata#agentii
+                    - generic [ref=e1076]:
+                      - img "Cash" [ref=e1077]
+                      - text: Cash
+                - listitem [ref=e1078]:
+                  - link "Open pam.paymentProvidersName.bankTransfer" [ref=e1079]:
+                    - /url: /wiki/metode-de-plata-transfer-bancar
+                    - generic [ref=e1080]:
+                      - img "Transfer bancar" [ref=e1081]
+                      - text: Transfer bancar
+                - listitem [ref=e1082]:
+                  - link "Open pam.paymentProvidersName.visa" [ref=e1083]:
+                    - /url: /wiki/metode-de-plata-online#visa-master
+                    - img "pam.paymentProvidersName.visa" [ref=e1084]
+                - listitem [ref=e1085]:
+                  - link "Open pam.paymentProvidersName.mastercard" [ref=e1086]:
+                    - /url: /wiki/metode-de-plata-online#visa-master
+                    - img "pam.paymentProvidersName.mastercard" [ref=e1087]
+                - listitem [ref=e1088]:
+                  - link "Open pam.paymentProvidersName.paysafe" [ref=e1089]:
+                    - /url: /wiki/metode-de-plata-online#paysafecard
+                    - img "pam.paymentProvidersName.paysafe" [ref=e1090]
+                - listitem [ref=e1091]:
+                  - link "Open pam.paymentProvidersName.revolut" [ref=e1092]:
+                    - /url: /wiki/metode-de-plata-online
+                    - img "pam.paymentProvidersName.revolut" [ref=e1093]
+                - listitem [ref=e1094]:
+                  - link "Open pam.paymentProvidersName.abon" [ref=e1095]:
+                    - /url: /wiki/metode-de-plata-online#a-bon
+                    - img "pam.paymentProvidersName.abon" [ref=e1096]
+                - listitem [ref=e1097]:
+                  - link "Open pam.paymentProvidersName.AirCash" [ref=e1098]:
+                    - /url: https://suport.superbet.ro/hc/ro/articles/25374029600274-Retragere-prin-Aircash-Market
+                    - img "pam.paymentProvidersName.AirCash" [ref=e1099]
+                - listitem [ref=e1100]:
+                  - link "Open pam.paymentProvidersName.applepay" [ref=e1101]:
+                    - /url: /wiki/metode-de-plata-online
+                    - img "pam.paymentProvidersName.applepay" [ref=e1102]
+                - listitem [ref=e1103]:
+                  - link "Open pam.paymentProvidersName.oktocash" [ref=e1104]:
+                    - /url: /wiki/metode-de-plata-online
+                    - img "pam.paymentProvidersName.oktocash" [ref=e1105]
+          - generic [ref=e1106]:
+            - generic [ref=e1108]: ofertă
+            - list [ref=e1109]:
+              - listitem [ref=e1110]:
+                - link " oferta zilnică" [ref=e1111] [cursor=pointer]:
+                  - /url: https://prod-superbet-retail-offer-print-api.global.ssl.fastly.net/offer-print/daily
+                  - generic [ref=e1112]:
+                    - generic [ref=e1113]: 
+                    - generic [ref=e1115]: oferta zilnică
+              - listitem [ref=e1116]:
+                - link " oferta săptămânală" [ref=e1117] [cursor=pointer]:
+                  - /url: https://prod-superbet-retail-offer-print-api.global.ssl.fastly.net/offer-print/weekly
+                  - generic [ref=e1118]:
+                    - generic [ref=e1119]: 
+                    - generic [ref=e1121]: oferta săptămânală
+              - listitem [ref=e1122]:
+                - link " Ofertă Cronologică" [ref=e1123] [cursor=pointer]:
+                  - /url: https://prod-superbet-retail-offer-print-api.global.ssl.fastly.net/offer-print/chronological
+                  - generic [ref=e1124]:
+                    - generic [ref=e1125]: 
+                    - generic [ref=e1127]: Ofertă Cronologică
+          - generic [ref=e1128]:
+            - generic [ref=e1130]: ajutor
+            - list [ref=e1131]:
+              - listitem [ref=e1132]:
+                - link "Întrebări frecvente" [ref=e1133]:
+                  - /url: https://suport.superbet.ro/hc/ro
+              - listitem [ref=e1134]:
+                - button "Live Chat" [ref=e1135] [cursor=pointer]:
+                  - generic [ref=e1137]: Live Chat
+        - generic [ref=e1138]:
+          - generic [ref=e1140]: Joacă responsabil
+          - generic [ref=e1141]:
+            - generic [ref=e1142]: Accesul persoanelor sub 18 ani este strict interzis.
+            - generic [ref=e1143]: Este responsabilitatea fiecărui jucător să acționeze în conformitate cu reglementările în vigoare precum și cu termenii și condițiile noastre. Jocurile de noroc implică risc financiar, jucați cu grijă.
+            - generic [ref=e1144]:
+              - link "Open ONJN page" [ref=e1145]:
+                - /url: https://onjn.gov.ro/
+                - img "International betting integrity association" [ref=e1146]
+              - link "Open Responsible Gaming page" [ref=e1147]:
+                - /url: /wiki/joc-responsabil
+                - img "18+" [ref=e1148]
+              - link "Open Rombet page" [ref=e1149]:
+                - /url: http://www.rombet.com/jocul-responsabil
+                - img "Rombet" [ref=e1150]
+              - link "Open International betting integrity association page" [ref=e1151]:
+                - /url: https://ibia.bet/
+                - img "International betting integrity association" [ref=e1152]
+              - link "Open Joc Responsabil page" [ref=e1153]:
+                - /url: https://jocresponsabil.ro/primeste-ajutor/
+                - img "Joc responsabil" [ref=e1154]
+              - generic [ref=e1155]:
+                - link "Open Autoritatea națională pentru protecția consumatorilor page" [ref=e1156]:
+                  - /url: https://anpc.ro/ce-este-sal/
+                  - img "Autoritatea națională pentru protecția consumatorilor" [ref=e1158]
+                - link "Open Soluționarea Alternativă a Litigiilo page" [ref=e1159]:
+                  - /url: https://ec.europa.eu/consumers/odr
+                  - img "Soluționarea Alternativă a Litigiilo" [ref=e1160]
+      - generic [ref=e1162]:
+        - generic [ref=e1163]:
+          - link "Superbet.ro" [ref=e1164] [cursor=pointer]:
+            - /url: /
+          - text: "este deținut și operat de SUPERBET ENTERTAINMENT LIMITED, Număr de Înregistrare C 95830; Level 1 Burlington Complex, Dragonara Road, St. Julians, Malta, prin SUPERBET ENTERTAINMENT LIMITED St. Julians Sucursala Bucuresti, Număr de Înregistrare J2023022589401, CUI: 49190978, cu sediul in București, sector 5, str, Serg. Ion Nuțu nr. 44, et 8. Drept de organizare în baza licenței L1203785W001253 cu valabilitate 01.01.2021-31.12.2030 și în baza autorizației de exploatare obținută prin Decizia nr.720 din 28.08.2025. Superbet Retail SA este un organizator de jocuri de noroc tradiţionale în baza licenței L1250351F001682, care, conform OUG 77/2009, efectuează operaţiuni de alimentare sau de retragere a fondurilor în baza licenței de procesator de plăți emisă prin Decizia nr. 976 din 26.11.2025."
+        - generic [ref=e1166]:
+          - link "Open Twitter" [ref=e1167]:
+            - /url: https://twitter.com/SuperbetRomania
+            - generic [ref=e1168]: 
+          - link "Open Facebook" [ref=e1169]:
+            - /url: https://www.facebook.com/superbet.ro/
+            - generic [ref=e1170]: 
+          - link "Open YouTube" [ref=e1171]:
+            - /url: https://www.youtube.com/channel/UCL6Qc_XWLUHBq1NYwu7prCA
+            - generic [ref=e1172]: 
+          - link "Open Instagram" [ref=e1173]:
+            - /url: https://www.instagram.com/superbetromania/
+            - generic [ref=e1174]: 
+```
