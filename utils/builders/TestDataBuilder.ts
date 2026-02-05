@@ -97,7 +97,7 @@ export class UserTestDataBuilder extends TestDataBuilder<UserTestData> {
    * @returns Builder instance
    */
   withUsername(username?: string): this {
-    return this.set('username', username || faker.internet.userName());
+    return this.set('username', username || faker.internet.username());
   }
 
   /**
@@ -110,7 +110,7 @@ export class UserTestDataBuilder extends TestDataBuilder<UserTestData> {
       password: this.get('password') || faker.internet.password({ length: 12 }),
       firstName: this.get('firstName') || faker.person.firstName(),
       lastName: this.get('lastName') || faker.person.lastName(),
-      username: this.get('username') || faker.internet.userName(),
+      username: this.get('username') || faker.internet.username(),
     };
   }
 }

@@ -39,22 +39,22 @@ export class AuthService implements IAuthService {
 
   /**
    * Authenticate user and return user data
-   * @param email - User email
-   * @param password - User password
+   * @param _email - User email
+   * @param _password - User password
    * @returns Promise with user data
    */
-  async authenticate(email: string, password: string): Promise<IUser> {
-    // Implementation to be added
+  async authenticate(_email: string, _password: string): Promise<IUser> {
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 
   /**
    * Register new user
-   * @param userData - User registration data
+   * @param _userData - User registration data
    * @returns Promise with created user
    */
-  async registerUser(userData: unknown): Promise<IUser> {
-    // Implementation to be added
+  async registerUser(_userData: unknown): Promise<IUser> {
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 }

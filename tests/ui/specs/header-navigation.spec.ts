@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { allure } from 'allure-playwright';
+
 import { HeaderComponent } from '../components/HeaderComponent';
-import { NavigationFacade } from '../../../utils/facades/NavigationFacade';
 import { ConsentHelper } from '../helpers/consent.helper';
 
 /**
@@ -10,63 +10,70 @@ import { ConsentHelper } from '../helpers/consent.helper';
  */
 test.describe('Header Navigation Tests', () => {
   let header: HeaderComponent;
-  let navigationFacade: NavigationFacade;
 
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
-    
+
     // Handle cookie consent popup before any interactions
     await allure.step('Handle cookie consent', async () => {
       await ConsentHelper.handleCookieConsentWithRetry(page);
     });
 
     header = new HeaderComponent(page);
-    navigationFacade = new NavigationFacade(page);
   });
 
-  test('@smoke @regression - Verify header contains all required links', async ({ page }) => {
+  test('@smoke @regression - Verify header contains all required links', async ({ page: _page }) => {
     await allure.step('Verify all header links are present', async () => {
       const results = await header.verifyAllLinksPresent();
 
       await allure.step('Verify Sport link', async () => {
+        await Promise.resolve();
         expect(results.sport).toBe(true);
       });
 
       await allure.step('Verify Live link', async () => {
+        await Promise.resolve();
         expect(results.live).toBe(true);
       });
 
       await allure.step('Verify Supersocial link', async () => {
+        await Promise.resolve();
         expect(results.supersocial).toBe(true);
       });
 
       await allure.step('Verify Biletele Mele link', async () => {
+        await Promise.resolve();
         expect(results.bileteleMele).toBe(true);
       });
 
       await allure.step('Verify Casino link', async () => {
+        await Promise.resolve();
         expect(results.casino).toBe(true);
       });
 
       await allure.step('Verify Casino Live link', async () => {
+        await Promise.resolve();
         expect(results.casinoLive).toBe(true);
       });
 
-
       await allure.step('Verify Search icon2', async () => {
+        await Promise.resolve();
         expect(results.search).toBe(true);
       });
 
       await allure.step('Verify User Profile icon', async () => {
+        await Promise.resolve();
         expect(results.userProfile).toBe(true);
       });
 
       await allure.step('Verify Register button', async () => {
+        await Promise.resolve();
         expect(results.register).toBe(true);
       });
 
       await allure.step('Verify Login button', async () => {
+        await Promise.resolve();
         expect(results.login).toBe(true);
       });
     });

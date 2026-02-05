@@ -53,8 +53,8 @@ export class AuthApiClient extends BaseApiClient implements IAuthApiClient {
    * @param password - User password
    * @returns Promise with authentication response
    */
-  async login(email: string, password: string): Promise<unknown> {
-    // Implementation to be added
+  async login(_email: string, _password: string): Promise<unknown> {
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 
@@ -63,8 +63,8 @@ export class AuthApiClient extends BaseApiClient implements IAuthApiClient {
    * @param userData - User registration data
    * @returns Promise with registration response
    */
-  async register(userData: unknown): Promise<unknown> {
-    // Implementation to be added
+  async register(_userData: unknown): Promise<unknown> {
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 
@@ -73,7 +73,7 @@ export class AuthApiClient extends BaseApiClient implements IAuthApiClient {
    * @returns Promise with logout response
    */
   async logout(): Promise<unknown> {
-    // Implementation to be added
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 
@@ -82,8 +82,8 @@ export class AuthApiClient extends BaseApiClient implements IAuthApiClient {
    * @param refreshToken - Refresh token
    * @returns Promise with new token
    */
-  async refreshToken(refreshToken: string): Promise<unknown> {
-    // Implementation to be added
+  async refreshToken(_refreshToken: string): Promise<unknown> {
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 }

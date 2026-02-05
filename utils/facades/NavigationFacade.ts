@@ -1,7 +1,8 @@
 import { Page } from '@playwright/test';
+
 import { HeaderComponent } from '../../tests/ui/components/HeaderComponent';
-import { SportPage } from '../../tests/ui/pages/SportPage';
 import { LivePage } from '../../tests/ui/pages/LivePage';
+import { SportPage } from '../../tests/ui/pages/SportPage';
 
 /**
  * Navigation Facade

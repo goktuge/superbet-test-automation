@@ -1,6 +1,7 @@
-import { FullConfig, FullResult, Reporter, Suite, TestCase, TestResult } from '@playwright/test/reporter';
 import * as http from 'http';
 import * as https from 'https';
+
+import { FullConfig, FullResult, Reporter, Suite, TestCase, TestResult } from '@playwright/test/reporter';
 
 /**
  * Grafana Metrics Reporter
@@ -29,7 +30,7 @@ export class GrafanaMetricsReporter implements Reporter {
   /**
    * Called once before running tests
    */
-  onBegin(config: FullConfig, suite: Suite): void {
+  onBegin(_config: FullConfig, _suite: Suite): void {
     // Initialize metrics collection
   }
 

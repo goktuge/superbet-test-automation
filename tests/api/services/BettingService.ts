@@ -38,21 +38,21 @@ export class BettingService implements IBettingService {
 
   /**
    * Get available bets
-   * @param filters - Filter criteria
+   * @param _filters - Filter criteria
    * @returns Promise with bets array
    */
-  async getAvailableBets(filters?: unknown): Promise<IBet[]> {
-    // Implementation to be added
+  async getAvailableBets(_filters?: unknown): Promise<IBet[]> {
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 
   /**
    * Place a bet
-   * @param betData - Bet data
+   * @param _betData - Bet data
    * @returns Promise with created bet
    */
-  async placeBet(betData: unknown): Promise<IBet> {
-    // Implementation to be added
+  async placeBet(_betData: unknown): Promise<IBet> {
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 }

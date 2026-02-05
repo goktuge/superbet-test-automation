@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+
 import { ConsentSelectors } from '../selectors/selectors';
 
 /**

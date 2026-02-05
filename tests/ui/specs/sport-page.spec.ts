@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { allure } from 'allure-playwright';
-import { SportPage } from '../pages/SportPage';
-import { NavigationFacade } from '../../../utils/facades/NavigationFacade';
+
 import { ConsentHelper } from '../helpers/consent.helper';
+import { SportPage } from '../pages/SportPage';
 
 /**
  * Sport Page Test Suite
@@ -10,11 +10,9 @@ import { ConsentHelper } from '../helpers/consent.helper';
  */
 test.describe('Sport Page Tests', () => {
   let sportPage: SportPage;
-  let navigationFacade: NavigationFacade;
 
   test.beforeEach(async ({ page }) => {
     sportPage = new SportPage(page);
-    navigationFacade = new NavigationFacade(page);
     await sportPage.navigate();
     
     // Handle cookie consent popup before any interactions
@@ -30,7 +28,7 @@ test.describe('Sport Page Tests', () => {
     });
   });
 
-  test('@regression - Click first 5 sub-pages and validate', async ({ page }) => {
+  test('@regression - Click first 5 sub-pages and validate', async ({ page: _page }) => {
     await allure.step('Get sub-page links', async () => {
       const subPages = await sportPage.getSubPageLinks();
       const pagesToTest = subPages.slice(0, 5);
@@ -53,6 +51,7 @@ test.describe('Sport Page Tests', () => {
           });
 
           await allure.step('Verify URL is correct', async () => {
+            await Promise.resolve();
             const currentUrl = sportPage.getCurrentUrl();
             expect(currentUrl).toContain('superbet.ro');
           });

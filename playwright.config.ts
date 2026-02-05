@@ -1,6 +1,7 @@
+import * as path from 'path';
+
 import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
-import * as path from 'path';
 
 // Load environment variables
 const env = process.env.ENV || 'local';
@@ -12,7 +13,7 @@ dotenv.config({ path: path.resolve(__dirname, `config/environments/${env}.env`) 
  * Configured to run tests on Chromium (Chrome) only
  */
 export default defineConfig({
-  testDir: './tests/ui/specs',
+  testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -56,10 +57,9 @@ export default defineConfig({
     headless: process.env.HEADLESS !== 'false',
   },
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
   ],
   webServer: undefined,
   timeout: 60000,

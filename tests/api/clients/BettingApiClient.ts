@@ -45,8 +45,8 @@ export class BettingApiClient extends BaseApiClient implements IBettingApiClient
    * @param filters - Filter criteria
    * @returns Promise with bets data
    */
-  async getBets(filters?: unknown): Promise<unknown> {
-    // Implementation to be added
+  async getBets(_filters?: unknown): Promise<unknown> {
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 
@@ -55,8 +55,8 @@ export class BettingApiClient extends BaseApiClient implements IBettingApiClient
    * @param betData - Bet data
    * @returns Promise with bet confirmation
    */
-  async placeBet(betData: unknown): Promise<unknown> {
-    // Implementation to be added
+  async placeBet(_betData: unknown): Promise<unknown> {
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 
@@ -65,8 +65,8 @@ export class BettingApiClient extends BaseApiClient implements IBettingApiClient
    * @param userId - User ID
    * @returns Promise with bet history
    */
-  async getBetHistory(userId: string): Promise<unknown> {
-    // Implementation to be added
+  async getBetHistory(_userId: string): Promise<unknown> {
+    await Promise.resolve();
     throw new Error('Method not implemented.');
   }
 }

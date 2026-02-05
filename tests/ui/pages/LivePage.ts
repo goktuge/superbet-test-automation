@@ -89,6 +89,7 @@ export class LivePage extends BasePage {
    * @returns True if URL matches
    */
   async verifyUrl(expectedPath: string | RegExp): Promise<boolean> {
+    await Promise.resolve();
     const currentUrl = this.getCurrentUrl();
     if (typeof expectedPath === 'string') {
       return currentUrl.includes(expectedPath);

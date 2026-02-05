@@ -1,5 +1,4 @@
 import { Page, Locator } from '@playwright/test';
-import { WaitHelper } from '../helpers/wait.helper';
 
 /**
  * Base Component class for reusable UI components
@@ -28,13 +27,28 @@ export abstract class BaseComponent {
   }
 
   /**
-   * Check if component is visible
+   * Check if component root is visible
    * @param timeout - Maximum wait time
    * @returns True if visible, false otherwise
    */
   async isVisible(timeout = 5000): Promise<boolean> {
     try {
       await this.waitForVisible(timeout);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  /**
+   * Check if element matching selector is visible within component
+   * @param selector - Element selector relative to component root
+   * @param timeout - Maximum wait time
+   * @returns True if visible, false otherwise
+   */
+  async isSelectorVisible(selector: string, timeout = 5000): Promise<boolean> {
+    try {
+      await this.getLocator(selector).waitFor({ state: 'visible', timeout });
       return true;
     } catch {
       return false;

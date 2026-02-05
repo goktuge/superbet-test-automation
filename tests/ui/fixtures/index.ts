@@ -1,9 +1,10 @@
 import { test as base } from '@playwright/test';
-import { HeaderComponent } from '../components/HeaderComponent';
-import { SportPage } from '../pages/SportPage';
-import { LivePage } from '../pages/LivePage';
+
 import { NavigationFacade } from '../../../utils/facades/NavigationFacade';
 import { PageFactory } from '../../../utils/facades/PageFactory';
+import { HeaderComponent } from '../components/HeaderComponent';
+import { LivePage } from '../pages/LivePage';
+import { SportPage } from '../pages/SportPage';
 
 /**
  * Extended test fixtures

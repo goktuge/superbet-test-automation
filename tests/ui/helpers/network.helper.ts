@@ -37,6 +37,7 @@ export class NetworkHelper {
    * @param urlPattern - URL pattern to intercept
    */
   static async interceptRequests(page: Page, urlPattern?: string | RegExp): Promise<void> {
+    await Promise.resolve();
     page.on('request', (request) => {
       if (!urlPattern || (typeof urlPattern === 'string' ? request.url().includes(urlPattern) : urlPattern.test(request.url()))) {
         console.log(`Request: ${request.method()} ${request.url()}`);

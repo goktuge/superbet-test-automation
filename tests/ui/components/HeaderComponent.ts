@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+
 import { BaseComponent } from '../base/BaseComponent';
 import { HeaderSelectors } from '../selectors/selectors';
 
@@ -88,16 +89,16 @@ export class HeaderComponent extends BaseComponent {
   async verifyAllLinksPresent(): Promise<Record<string, boolean>> {
     const results: Record<string, boolean> = {};
 
-    results.sport = await this.isVisible(HeaderSelectors.sportLink);
-    results.live = await this.isVisible(HeaderSelectors.liveLink);
-    results.supersocial = await this.isVisible(HeaderSelectors.supersocialLink);
-    results.bileteleMele = await this.isVisible(HeaderSelectors.bileteleMeleLink);
-    results.casino = await this.isVisible(HeaderSelectors.casinoLink);
-    results.casinoLive = await this.isVisible(HeaderSelectors.casinoLiveLink);
-    results.search = await this.isVisible(HeaderSelectors.searchIcon);
-    results.userProfile = await this.isVisible(HeaderSelectors.userProfileIcon);
-    results.register = await this.isVisible(HeaderSelectors.registerButton);
-    results.login = await this.isVisible(HeaderSelectors.loginButton);
+    results.sport = await this.isSelectorVisible(HeaderSelectors.sportLink);
+    results.live = await this.isSelectorVisible(HeaderSelectors.liveLink);
+    results.supersocial = await this.isSelectorVisible(HeaderSelectors.supersocialLink);
+    results.bileteleMele = await this.isSelectorVisible(HeaderSelectors.bileteleMeleLink);
+    results.casino = await this.isSelectorVisible(HeaderSelectors.casinoLink);
+    results.casinoLive = await this.isSelectorVisible(HeaderSelectors.casinoLiveLink);
+    results.search = await this.isSelectorVisible(HeaderSelectors.searchIcon);
+    results.userProfile = await this.isSelectorVisible(HeaderSelectors.userProfileIcon);
+    results.register = await this.isSelectorVisible(HeaderSelectors.registerButton);
+    results.login = await this.isSelectorVisible(HeaderSelectors.loginButton);
 
     return results;
   }

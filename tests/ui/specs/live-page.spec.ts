@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { allure } from 'allure-playwright';
-import { LivePage } from '../pages/LivePage';
-import { NavigationFacade } from '../../../utils/facades/NavigationFacade';
+
 import { ConsentHelper } from '../helpers/consent.helper';
+import { LivePage } from '../pages/LivePage';
 
 /**
  * Live Page Test Suite
@@ -10,11 +10,9 @@ import { ConsentHelper } from '../helpers/consent.helper';
  */
 test.describe('Live Page Tests', () => {
   let livePage: LivePage;
-  let navigationFacade: NavigationFacade;
 
   test.beforeEach(async ({ page }) => {
     livePage = new LivePage(page);
-    navigationFacade = new NavigationFacade(page);
     await livePage.navigate();
     
     // Handle cookie consent popup before any interactions
@@ -44,7 +42,7 @@ test.describe('Live Page Tests', () => {
     });
   });
 
-  test('@regression - Verify "Fotbal" link is functional', async ({ page }) => {
+  test('@regression - Verify "Fotbal" link is functional', async ({ page: _page }) => {
     await allure.step('Click Fotbal link', async () => {
       await livePage.clickFotbalLink();
       // Verify URL contains fotbal or similar pattern

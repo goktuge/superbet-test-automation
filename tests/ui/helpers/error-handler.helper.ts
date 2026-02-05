@@ -1,6 +1,7 @@
-import { Page } from '@playwright/test';
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
+
+import { Page } from '@playwright/test';
 
 /**
  * Custom error handling with screenshot capture
@@ -15,7 +16,7 @@ export class ErrorHandler {
   static async captureScreenshot(
     page: Page,
     testName: string,
-    errorMessage: string
+    _errorMessage: string
   ): Promise<string> {
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
     const sanitizedTestName = testName.replace(/[^a-zA-Z0-9]/g, '_');
