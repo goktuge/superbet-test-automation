@@ -2,7 +2,6 @@ import { InfluxDB, Point, WriteApi } from '@influxdata/influxdb-client';
 
 import type { FullConfig, Reporter, Suite, TestCase, TestResult } from '@playwright/test/reporter';
 
-/** Walk up the suite tree to find the project (browser) name; TestCase has no project(), Suite does. */
 function getProjectName(test: TestCase): string {
   let suite: Suite | undefined = test.parent;
   while (suite) {
@@ -18,41 +17,15 @@ export class InfluxDBReporter implements Reporter {
   private client: InfluxDB | null = null;
   private enabled = false;
   private env: string;
-  private runId: string;
-  private runNumber: string;
-  private browser: string;
-  private project: string;
-  private suite: string;
-  private testName: string;
-  private testStatus: string;
-  private testDuration: number;
-  private testRetryCount: number;
-  private testPassed: number;
-  private testFailed: number;
-  private testSkipped: number;
-  private testError: string;
 
   constructor() {
     this.env = process.env.ENV || process.env.NODE_ENV || 'local';
-    this.runId = process.env.RUN_ID || 'unknown';
-    this.runNumber = process.env.RUN_NUMBER || 'unknown';
-    this.browser = process.env.BROWSER || 'unknown';
-    this.project = process.env.PROJECT || 'unknown';
-    this.suite = process.env.SUITE || 'unknown';
-    this.testName = process.env.TEST_NAME || 'unknown';
-    this.testStatus = process.env.TEST_STATUS || 'unknown';
-    this.testDuration = Number(process.env.TEST_DURATION) || 0;
-    this.testRetryCount = Number(process.env.TEST_RETRY_COUNT) || 0;
-    this.testPassed = Number(process.env.TEST_PASSED) || 0;
-    this.testFailed = Number(process.env.TEST_FAILED) || 0;
-    this.testSkipped = Number(process.env.TEST_SKIPPED) || 0;
-    this.testError = process.env.TEST_ERROR || 'unknown';
   }
 
   private isConfigured(): boolean {
     const url = process.env.INFLUX_URL;
     const token = process.env.INFLUX_TOKEN;
-    return Boolean(url && token && this.env && this.runId && this.runNumber && this.browser && this.project && this.suite && this.testName && this.testStatus && this.testDuration && this.testRetryCount && this.testPassed && this.testFailed && this.testSkipped && this.testError);
+    return Boolean(url && token);
   }
 
   onBegin(_config: FullConfig, _suite: Suite): void {
@@ -68,20 +41,6 @@ export class InfluxDBReporter implements Reporter {
       this.writeApi = this.client.getWriteApi(org, bucket, 'ms');
       this.enabled = true;
       console.log('[InfluxDBReporter] Metrics initialized successfully.');
-      console.log('[InfluxDBReporter] Env:', this.env);
-      console.log('[InfluxDBReporter] Run ID:', this.runId);
-      console.log('[InfluxDBReporter] Run Number:', this.runNumber);
-      console.log('[InfluxDBReporter] Browser:', this.browser);
-      console.log('[InfluxDBReporter] Project:', this.project);
-      console.log('[InfluxDBReporter] Suite:', this.suite);
-      console.log('[InfluxDBReporter] Test Name:', this.testName);
-      console.log('[InfluxDBReporter] Test Status:', this.testStatus);
-      console.log('[InfluxDBReporter] Test Duration:', this.testDuration);
-      console.log('[InfluxDBReporter] Test Retry Count:', this.testRetryCount);
-      console.log('[InfluxDBReporter] Test Passed:', this.testPassed);
-      console.log('[InfluxDBReporter] Test Failed:', this.testFailed);
-      console.log('[InfluxDBReporter] Test Skipped:', this.testSkipped);
-      console.log('[InfluxDBReporter] Test Error:', this.testError);
     } catch (err) {
       console.warn('[InfluxDBReporter] Failed to initialize:', (err as Error).message);
     }
@@ -91,30 +50,31 @@ export class InfluxDBReporter implements Reporter {
     if (!this.enabled || !this.writeApi) return;
 
     try {
+      const browser = getProjectName(test);
       const suiteName = this.getSuiteName(test);
+      const testName = this.sanitizeTag(test.title);
+      const status = result.status;
+      const durationMs = Math.round(result.duration);
+      const retryCount = result.retry;
+      const passed = status === 'passed' ? 1 : 0;
+      const failed = status === 'failed' ? 1 : 0;
+      const skipped = status === 'skipped' ? 1 : 0;
+      const errorMessage = result.error?.message?.slice(0, 500) ?? '';
+
       const point = new Point('test_execution')
-        .tag('test_name', this.sanitizeTag(test.title))
-        .tag('browser', getProjectName(test))
-        .tag('suite', this.sanitizeTag(suiteName))
-        .tag('status', result.status)
+        .tag('browser', this.sanitizeTag(browser))
+        .tag('status', status)
         .tag('environment', this.env)
-        .tag('run_id', this.runId)
-        .tag('run_number', this.runNumber)
-        .tag('browser', this.browser)
-        .tag('project', this.project)
-        .tag('suite', this.suite)
-        .tag('test_name', this.testName)
-        .tag('test_status', this.testStatus)
-        .tag('test_duration', String(this.testDuration))
-        .tag('test_retry_count', String(this.testRetryCount))
-        .tag('test_passed', String(this.testPassed))
-        .tag('test_failed', String(this.testFailed))
-        .tag('test_skipped', String(this.testSkipped))
-        .tag('test_error', this.testError)
-        .intField('duration_ms', Math.round(result.duration))
-        .uintField('retry_count', result.retry)
-        .intField('passed', result.status === 'passed' ? 1 : 0)
-        .intField('failed', result.status === 'failed' ? 1 : 0)
+        .tag('run_id', this.sanitizeTag(process.env.RUN_ID || process.env.GITHUB_RUN_ID || 'local'))
+        .tag('run_number', this.sanitizeTag(process.env.RUN_NUMBER || process.env.GITHUB_RUN_NUMBER || '0'))
+        .tag('suite', this.sanitizeTag(suiteName))
+        .tag('test_name', testName)
+        .intField('duration_ms', durationMs)
+        .uintField('retry_count', retryCount)
+        .intField('passed', passed)
+        .intField('failed', failed)
+        .intField('skipped', skipped)
+        .stringField('error_message', errorMessage)
         .timestamp(new Date());
 
       this.writeApi.writePoint(point);
@@ -141,9 +101,10 @@ export class InfluxDBReporter implements Reporter {
     const titles: string[] = [];
     let parent: Suite | undefined = test.parent;
     while (parent) {
-      const t = parent.title?.trim();
+      const p: Suite = parent;
+      const t = p.title?.trim();
       if (t) titles.unshift(t);
-      parent = parent.parent;
+      parent = p.parent;
     }
     return titles.length > 0 ? titles.join(' > ') : 'default';
   }
