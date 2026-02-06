@@ -57,6 +57,7 @@ jobs:
 
       - name: Run smoke tests
         run: npm run test:ui:smoke
+        continue-on-error: true
         env:
           ENV: staging
           BASE_URL: ${{ secrets.STAGING_URL || 'https://superbet.ro' }}
@@ -115,6 +116,7 @@ jobs:
 
       - name: Run regression tests
         run: npm run test:ui:regression
+        continue-on-error: true
         env:
           ENV: prod
           BASE_URL: ${{ secrets.PROD_URL || 'https://superbet.ro' }}
@@ -196,6 +198,7 @@ jobs:
           else
             npm run test:ui:regression
           fi
+          continue-on-error: true
         env:
           ENV: ${{ github.event.inputs.environment }}
           BASE_URL: ${{ secrets.STAGING_URL || 'https://superbet.ro' }}

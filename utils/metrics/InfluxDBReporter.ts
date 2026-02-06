@@ -13,10 +13,6 @@ function getProjectName(test: TestCase): string {
   return 'unknown';
 }
 
-/**
- * Playwright reporter that writes test execution metrics to InfluxDB 2.x.
- * Set INFLUX_URL, INFLUX_TOKEN, INFLUX_ORG, INFLUX_BUCKET to enable.
- */
 export class InfluxDBReporter implements Reporter {
   private writeApi: WriteApi | null = null;
   private client: InfluxDB | null = null;
