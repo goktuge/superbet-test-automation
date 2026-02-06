@@ -56,7 +56,7 @@ jobs:
         run: npx playwright install --with-deps ${{ matrix.browser }}
 
       - name: Run smoke tests
-        run: npm run test:ui:smoke --project=${{ matrix.browser }}
+        run: npm run test:ui:smoke -- --project=${{ matrix.browser }}
         continue-on-error: true
         env:
           ENV: staging
@@ -115,7 +115,7 @@ jobs:
         run: npx playwright install --with-deps ${{ matrix.browser }}
 
       - name: Run regression tests
-        run: npm run test:ui:regression --project=${{ matrix.browser }}
+        run: npm run test:ui:regression -- --project=${{ matrix.browser }}
         continue-on-error: true
         env:
           ENV: prod
@@ -194,9 +194,9 @@ jobs:
       - name: Run tests
         run: |
           if [ "${{ github.event.inputs.test_type }}" == "smoke" ]; then
-            npm run test:ui:smoke --project=${{ matrix.browser }}
+            npm run test:ui:smoke -- --project=${{ matrix.browser }}
           else
-            npm run test:ui:regression --project=${{ matrix.browser }}
+            npm run test:ui:regression -- --project=${{ matrix.browser }}
           fi
           continue-on-error: true
         env:
