@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { allure } from 'allure-playwright';
+import * as allure from 'allure-js-commons';
 
 import { ConsentHelper } from '../helpers/consent.helper';
 import { SportPage } from '../pages/SportPage';

@@ -21,6 +21,7 @@ export default defineConfig({
   reporter: [
     ['html', { outputFolder: 'playwright-report' }],
     ['list'],
+    ['./utils/metrics/InfluxDBReporter.ts'],
     [
       'allure-playwright',
       {
