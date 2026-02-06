@@ -27,6 +27,11 @@ export default defineConfig({
       {
         outputFolder: 'allure-results',
         suiteTitle: false,
+        attachments: {
+          screenshot: 'only-on-failure',
+          video: 'retain-on-failure',
+          trace: 'retain-on-failure',
+        },
         categories: [
           {
             name: 'Broken tests',
