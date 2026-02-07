@@ -178,7 +178,7 @@ jobs:
           path: artifacts
         continue-on-error: true
 
-      - name: Checkout report history
+      - name: Checkout gh-pages (existing report history)
         uses: actions/checkout@v4
         with:
           ref: gh-pages
@@ -206,17 +206,66 @@ jobs:
         run: npx allure generate allure-results --clean -o allure-report
         continue-on-error: true
 
-      - name: Restore report history
+      - name: Restore Allure history (trend from previous run)
         run: |
-          if [ -d gh-pages/history ]; then
-            cp -r gh-pages/history allure-report/
+          PREV=$(for d in gh-pages/[0-9]*/; do [ -d "$d" ] && basename "$d"; done 2>/dev/null | sort -n | tail -1)
+          if [ -n "$PREV" ] && [ -d "gh-pages/$PREV/history" ]; then
+            cp -r "gh-pages/$PREV/history" allure-report/
           fi
         continue-on-error: true
+
+      - name: Build publish dir (last 20 runs, numbered folders)
+        run: |
+          KEEP=20
+          PUBLISH=publish
+          mkdir -p "$PUBLISH"
+
+          # Next run number = max(existing numbered dirs) + 1, or 1
+          NEXT=1
+          if [ -d gh-pages ]; then
+            for d in gh-pages/*/; do
+              n=$(basename "$d")
+              case "$n" in ([0-9]*) [ "$n" -gt "$NEXT" ] 2>/dev/null && NEXT=$n ;; esac
+            done
+            [ "$NEXT" -ge 1 ] 2>/dev/null && NEXT=$((NEXT + 1))
+          fi
+
+          # Copy existing numbered report folders from gh-pages into publish
+          for d in gh-pages/*/; do
+            [ -d "$d" ] || continue
+            n=$(basename "$d")
+            case "$n" in ([0-9]*) cp -r "$d" "$PUBLISH/$n" ;; esac
+          done
+
+          # Add this run as the next number
+          if [ -d allure-report ] && [ -n "$(ls -A allure-report 2>/dev/null)" ]; then
+            cp -r allure-report "$PUBLISH/$NEXT"
+          fi
+
+          # Keep only the last KEEP runs (highest numbers)
+          cd "$PUBLISH"
+          for d in [0-9]*/; do
+            [ -d "$d" ] || continue
+            echo "$(basename "$d")"
+          done | sort -n | head -n -"$KEEP" | while read -r old; do
+            rm -rf "$old"
+          done
+          cd ..
+
+          # Index: redirect to latest (relative for project Pages)
+          LATEST=$(cd "$PUBLISH" && for d in [0-9]*/; do [ -d "$d" ] && basename "$d"; done | sort -n | tail -1)
+          if [ -n "$LATEST" ]; then
+            echo "<!DOCTYPE html><html><head><meta http-equiv=\"refresh\" content=\"0;url=$LATEST/\" /><script>location.href='$LATEST/';</script></head><body><p>Redirecting to <a href=\"$LATEST/\">latest report ($LATEST)</a>...</p></body></html>" > "$PUBLISH/index.html"
+          fi
+
+          echo "NEXT_RUN=$NEXT" >> $GITHUB_ENV
+          echo "LATEST=$LATEST" >> $GITHUB_ENV
+          echo "Published run number: $NEXT (latest: $LATEST)"
 
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-report
+          publish_dir: publish
           publish_branch: gh-pages
         if: success() || failure()
