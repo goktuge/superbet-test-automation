@@ -2,7 +2,7 @@ name: Nightly Tests
 
 on:
   schedule:
-    - cron: '20 22 * * *'
+    - cron: '25 22 * * *'
   workflow_dispatch:
 
 env:
@@ -50,39 +50,42 @@ jobs:
           path: allure-results/
 
   report:
-    name: Generate Allure Report & Metrics
+    name: Generate Allure Report
     runs-on: ubuntu-latest
     needs: nightly-regression
     if: always()
     steps:
       - uses: actions/checkout@v4
-      
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
       - uses: actions/download-artifact@v4
         with:
           path: artifacts
-      
-      - name: Merge Allure results
+        continue-on-error: true
+
+      - name: Prepare Allure results
         run: |
           mkdir -p allure-results
-          find artifacts -name '*.json' -exec cp {} allure-results/ \;
-      
-      - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@master
-        with:
-          allure_results: allure-results
-          allure_history: allure-history
-          keep_reports: 20
-      
-      - name: Deploy Allure to GH Pages
+          if [ -d artifacts ]; then
+            find artifacts -type f -name '*.json' -exec cp {} allure-results/ \;
+          fi
+
+      - name: Generate Allure report
+        run: npx allure generate allure-results --clean -o allure-report
+        continue-on-error: true
+
+      - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-history
+          publish_dir: allure-report
           publish_branch: gh-pages
-      
-      - name: Push metrics to Grafana
-        run: npm run push-metrics
-        env:
-          INFLUX_DB: ${{ secrets.INFLUX_DB }}
-          INFLUX_USER: ${{ secrets.INFLUX_USER }}
-          INFLUX_PASSWORD: ${{ secrets.INFLUX_PASSWORD }}
+        if: success() || failure()
