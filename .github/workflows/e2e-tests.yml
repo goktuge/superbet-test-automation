@@ -23,15 +23,16 @@ on:
         options:
           - smoke
           - regression
+
 env:
   INFLUX_URL: ${{ secrets.INFLUX_CLOUD_URL }}
   INFLUX_TOKEN: ${{ secrets.INFLUX_CLOUD_TOKEN }}
   INFLUX_ORG: ${{ secrets.INFLUX_CLOUD_ORG }}
   INFLUX_BUCKET: test-metrics
-  
+
 jobs:
   smoke-tests:
-    name: Smoke Tests
+    name: Smoke Tests - ${{ matrix.browser }}
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     strategy:
@@ -49,25 +50,25 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+        run: npm ci || npm install
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps ${{ matrix.browser }}
 
       - name: Run smoke tests
-        run: npm run test:ui:smoke -- --project=${{ matrix.browser }}
+        run: npx playwright test tests/smoke --project=${{ matrix.browser }} --reporter=allure-playwright
         continue-on-error: true
         env:
           ENV: staging
           BASE_URL: ${{ secrets.STAGING_URL || 'https://superbet.ro' }}
           HEADLESS: true
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-results-${{ matrix.browser }}
           path: allure-results/
-          
+
   regression-tests:
     name: Regression Tests - ${{ matrix.browser }}
     runs-on: ubuntu-latest
@@ -87,14 +88,13 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+        run: npm ci || npm install
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps ${{ matrix.browser }}
 
       - name: Run regression tests
-        run: npm run test:ui:regression -- --project=${{ matrix.browser }}
+        run: npx playwright test tests --project=${{ matrix.browser }} --reporter=allure-playwright
         continue-on-error: true
         env:
           ENV: prod
@@ -106,9 +106,9 @@ jobs:
         with:
           name: allure-results-${{ matrix.browser }}
           path: allure-results/
-          
+
   manual-trigger:
-    name: Manual Test Run
+    name: Manual Test Run - ${{ matrix.browser }}
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
     strategy:
@@ -126,8 +126,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+        run: npm ci || npm install
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps ${{ matrix.browser }}
@@ -135,11 +134,11 @@ jobs:
       - name: Run tests
         run: |
           if [ "${{ github.event.inputs.test_type }}" == "smoke" ]; then
-            npm run test:ui:smoke -- --project=${{ matrix.browser }}
+            npx playwright test tests/smoke --project=${{ matrix.browser }} --reporter=allure-playwright
           else
-            npm run test:ui:regression -- --project=${{ matrix.browser }}
+            npx playwright test tests --project=${{ matrix.browser }} --reporter=allure-playwright
           fi
-          continue-on-error: true
+        continue-on-error: true
         env:
           ENV: ${{ github.event.inputs.environment }}
           BASE_URL: ${{ secrets.STAGING_URL || 'https://superbet.ro' }}
