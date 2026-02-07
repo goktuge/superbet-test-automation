@@ -2,7 +2,7 @@ name: Nightly Tests
 
 on:
   schedule:
-    - cron: '0 2 * * *' # Run at 2 AM UTC daily
+    - cron: '6 21 * * *' # Run at 2 AM UTC daily
   workflow_dispatch:
 
 jobs:
@@ -58,11 +58,3 @@ jobs:
           INFLUX_DB: ${{ secrets.INFLUX_DB }}
           INFLUX_USER: ${{ secrets.INFLUX_USER }}
           INFLUX_PASSWORD: ${{ secrets.INFLUX_PASSWORD }}
-
-      - name: Notify on failure
-        if: failure()
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          text: 'Nightly tests failed on ${{ matrix.browser }}'
-          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
