@@ -18,7 +18,9 @@ export class CustomError extends Error {
     super(message);
     this.name = this.constructor.name;
     this.context = context;
-    Error.captureStackTrace(this, this.constructor);
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, this.constructor);
+    }
   }
 }
 

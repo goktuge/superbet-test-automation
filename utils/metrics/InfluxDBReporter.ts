@@ -75,7 +75,7 @@ export class InfluxDBReporter implements Reporter {
         .intField('failed', failed)
         .intField('skipped', skipped)
         .stringField('error_message', errorMessage)
-        .timestamp(new Date());
+        .timestamp(undefined);
 
       this.writeApi.writePoint(point);
     } catch (err) {
