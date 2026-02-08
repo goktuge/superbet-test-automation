@@ -225,9 +225,11 @@ jobs:
           git checkout gh-pages 2>/dev/null || git checkout --orphan gh-pages
           git reset --hard 2>/dev/null || true
           find . -maxdepth 1 ! -name . ! -name .git -exec rm -rf {} + 2>/dev/null || true
-          cp -r /tmp/report/* .
+          cp -r /tmp/report/. .
+          touch .nojekyll
           git add -A
           git diff --staged --quiet || git commit -m "Deploy Allure report [skip ci]"
           git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages
+          git checkout -f ${{ github.sha }}
 
 
