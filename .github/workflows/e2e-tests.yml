@@ -173,6 +173,18 @@ jobs:
           submodules: false
           fetch-depth: 0
 
+      - name: Create gh-pages branch if missing
+        run: |
+          git fetch origin gh-pages 2>/dev/null || {
+            git checkout --orphan gh-pages
+            git reset --hard
+            echo '<!DOCTYPE html><html><body><p>Allure Report</p></body></html>' > index.html
+            git add index.html
+            git commit -m "Initialize gh-pages"
+            git push origin gh-pages
+            git checkout -f ${{ github.sha }}
+          }
+
       - uses: actions/download-artifact@v4
         with:
           path: artifacts
