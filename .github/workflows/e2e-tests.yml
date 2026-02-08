@@ -173,6 +173,15 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: false
 
+      - name: Checkout gh-pages (history)
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: false
+        continue-on-error: true
+
       - uses: actions/download-artifact@v4
         with:
           path: artifacts
@@ -194,10 +203,10 @@ jobs:
       - name: Deploy Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: allure-report
+          folder: allure-history
           branch: gh-pages
           token: ${{ secrets.GITHUB_TOKEN }}
-          clean: false
+          clean: true
           single-commit: true
 
 
