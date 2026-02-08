@@ -170,66 +170,43 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           submodules: false
-          fetch-depth: 0
-
-      - name: Create gh-pages branch if missing
-        run: |
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
-          git fetch origin gh-pages 2>/dev/null || {
-            git checkout --orphan gh-pages
-            git reset --hard
-            echo '<!DOCTYPE html><html><body><p>Allure Report</p></body></html>' > index.html
-            git add index.html
-            git commit -m "Initialize gh-pages"
-            git push origin gh-pages
-            git checkout -f ${{ github.sha }}
-          }
 
       - uses: actions/download-artifact@v4
         with:
           path: artifacts
         continue-on-error: true
 
-      - name: Merge Allure results and attachments
+      - name: Merge Allure results
         run: |
           mkdir -p allure-results
-          find artifacts -type f -name '*.json' -exec cp {} allure-results/ \; 2>/dev/null || true
-          find artifacts -type f \( -name '*.webm' -o -name '*.png' -o -name '*.jpg' -o -name '*.zip' \) \
-            -exec cp {} allure-results/ \; 2>/dev/null || true
+          find artifacts -name "*.json" -exec cp {} allure-results/ \; 2>/dev/null || true
+          find artifacts -type f \( -name "*.webm" -o -name "*.png" -o -name "*.jpg" -o -name "*.zip" \) -exec cp {} allure-results/ \; 2>/dev/null || true
 
       - name: Checkout gh-pages for history
         uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
           submodules: false
         continue-on-error: true
 
-      - name: Generate Allure report with history (last 20)
+      - name: Generate Allure Report
         uses: simple-elf/allure-report-action@master
         with:
           allure_results: allure-results
           allure_report: allure-report
-          gh_pages: gh-pages
-          allure_history: report
           keep_reports: 20
 
-      - name: Deploy to GH Pages
-        run: |
-          cp -r report /tmp/report
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
-          git fetch origin gh-pages 2>/dev/null || true
-          git checkout gh-pages 2>/dev/null || git checkout --orphan gh-pages
-          git reset --hard 2>/dev/null || true
-          find . -maxdepth 1 ! -name . ! -name .git -exec rm -rf {} + 2>/dev/null || true
-          cp -r /tmp/report/. .
-          touch .nojekyll
-          git add -A
-          git diff --staged --quiet || git commit -m "Deploy Allure report [skip ci]"
-          git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages
-          git checkout -f ${{ github.sha }}
+      - name: Deploy Allure → GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: allure-history
+          branch: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+          clean: true
+          single-commit: true
 
 
