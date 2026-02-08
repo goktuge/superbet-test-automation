@@ -209,6 +209,11 @@ jobs:
           allure_history: report
           keep_reports: 20
 
+      - name: Fetch full history for gh-pages push
+        run: |
+          git fetch --unshallow 2>/dev/null || true
+          git fetch origin gh-pages 2>/dev/null || true
+
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

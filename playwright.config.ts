@@ -6,7 +6,7 @@ export default defineConfig({
   workers: process.env.CI ? 4 : 2,
   retries: process.env.CI ? 2 : 0,
   reporter: [
-    ['html'],
+    process.env.CI ? ['list'] : ['html'],
     ['./utils/metrics/InfluxDBReporter.ts'],
     ['allure-playwright', { 
       outputFolder: 'allure-results',
