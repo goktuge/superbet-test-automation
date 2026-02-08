@@ -197,6 +197,8 @@ jobs:
           folder: allure-report
           branch: gh-pages
           token: ${{ secrets.GITHUB_TOKEN }}
-          clean: true
+          clean: false
+          single-commit: true
+
 
 
