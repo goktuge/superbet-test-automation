@@ -215,10 +215,16 @@ jobs:
           keep_reports: 20
 
       - name: Deploy to GH Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: report
-          publish_branch: gh-pages
-        if: success() || failure()
-        
+        run: |
+          git fetch origin gh-pages 2>/dev/null || true
+          git checkout gh-pages 2>/dev/null || git checkout --orphan gh-pages
+          git reset --hard 2>/dev/null || true
+          for f in .* *; do [ "$f" != ".git" ] && [ "$f" != "report" ] && [ "$f" != "." ] && [ "$f" != ".." ] && rm -rf "$f" 2>/dev/null; done
+          cp -r report/* . 2>/dev/null || true
+          rm -rf report 2>/dev/null || true
+          git add -A
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git diff --staged --quiet || git commit -m "Deploy Allure report [skip ci]"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages
+
