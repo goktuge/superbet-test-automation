@@ -178,35 +178,25 @@ jobs:
           path: artifacts
         continue-on-error: true
 
-      - name: Merge Allure results
+      - name: Merge results
         run: |
           mkdir -p allure-results
           find artifacts -name "*.json" -exec cp {} allure-results/ \; 2>/dev/null || true
           find artifacts -type f \( -name "*.webm" -o -name "*.png" -o -name "*.jpg" -o -name "*.zip" \) -exec cp {} allure-results/ \; 2>/dev/null || true
 
-      - name: Checkout gh-pages for history
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
-          submodules: false
-        continue-on-error: true
-
-      - name: Generate Allure Report
+      - name: Generate Allure
         uses: simple-elf/allure-report-action@master
         with:
           allure_results: allure-results
           allure_report: allure-report
           keep_reports: 20
 
-      - name: Deploy Allure → GitHub Pages
+      - name: Deploy Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: allure-history
+          folder: allure-report
           branch: gh-pages
           token: ${{ secrets.GITHUB_TOKEN }}
           clean: true
-          single-commit: true
 
 
