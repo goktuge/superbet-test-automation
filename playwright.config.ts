@@ -12,17 +12,8 @@ export default defineConfig({
       outputFolder: 'allure-results',
       video: 'retain-on-failure',
       screenshot: 'only-on-failure',
-      attachments: true,
-      screenshotPath: 'test-results/screenshots',
-      videoPath: 'test-results/videos',
-      reportDir: 'allure-report',
-      reportTitle: 'Superbet Test Automation Report',
-      reportName: 'allure-report',
-      reportSuiteTitle: true,
-      reportTestTitle: true,
-      reportBrowser: true,
-      reportDevice: true,
       suiteTitle: true, 
+      details: true
     }],
   ],
   use: {
