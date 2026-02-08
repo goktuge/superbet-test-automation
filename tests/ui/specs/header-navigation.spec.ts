@@ -4,10 +4,19 @@ import * as allure from 'allure-js-commons';
 import { HeaderComponent } from '../components/HeaderComponent';
 import { ConsentHelper } from '../helpers/consent.helper';
 
-/**
- * Header Navigation Test Suite
- * Validates all header links and functionality
- */
+const headerLabels: Record<string, string> = {
+  sport: 'Sport link',
+  live: 'Live link',
+  supersocial: 'Supersocial link',
+  bileteleMele: 'Biletele Mele link',
+  casino: 'Casino link',
+  casinoLive: 'Casino Live link',
+  search: 'Search icon',
+  userProfile: 'User Profile icon',
+  register: 'Register button',
+  login: 'Login button',
+};
+
 test.describe('Header Navigation Tests', () => {
   let header: HeaderComponent;
 
@@ -15,7 +24,6 @@ test.describe('Header Navigation Tests', () => {
     await page.goto('/');
     await page.waitForLoadState('domcontentloaded');
 
-    // Handle cookie consent popup before any interactions
     await allure.step('Handle cookie consent', async () => {
       await ConsentHelper.handleCookieConsentWithRetry(page);
     });
@@ -23,166 +31,111 @@ test.describe('Header Navigation Tests', () => {
     header = new HeaderComponent(page);
   });
 
-  test('@smoke @regression - Verify header contains all required links', async ({ page: _page }) => {
-    await allure.step('Verify all header links are present', async () => {
-      const results = await header.verifyAllLinksPresent();
-
-      await allure.step('Verify Sport link', async () => {
-        await Promise.resolve();
-        expect(results.sport).toBe(true);
-      });
-
-      await allure.step('Verify Live link', async () => {
-        await Promise.resolve();
-        expect(results.live).toBe(true);
-      });
-
-      await allure.step('Verify Supersocial link', async () => {
-        await Promise.resolve();
-        expect(results.supersocial).toBe(true);
-      });
-
-      await allure.step('Verify Biletele Mele link', async () => {
-        await Promise.resolve();
-        expect(results.bileteleMele).toBe(true);
-      });
-
-      await allure.step('Verify Casino link', async () => {
-        await Promise.resolve();
-        expect(results.casino).toBe(true);
-      });
-
-      await allure.step('Verify Casino Live link', async () => {
-        await Promise.resolve();
-        expect(results.casinoLive).toBe(true);
-      });
-
-      await allure.step('Verify Search icon2', async () => {
-        await Promise.resolve();
-        expect(results.search).toBe(true);
-      });
-
-      await allure.step('Verify User Profile icon', async () => {
-        await Promise.resolve();
-        expect(results.userProfile).toBe(true);
-      });
-
-      await allure.step('Verify Register button', async () => {
-        await Promise.resolve();
-        expect(results.register).toBe(true);
-      });
-
-      await allure.step('Verify Login button', async () => {
-        await Promise.resolve();
-        expect(results.login).toBe(true);
-      });
-    });
+  test('@smoke @regression - Verify header contains all required links', async () => {
+    const results = await header.verifyAllLinksPresent();
+    for (const [key, value] of Object.entries(results)) {
+      await test.step(headerLabels[key] ?? key, () => expect(value).toBe(true));
+    }
   });
 
-  test('@regression - Verify Sport link navigation', async ({ page }) => {
-    await allure.step('Click Sport link and verify navigation', async () => {
-      await header.clickSportLink();
-      await expect(page).toHaveURL(/.*\/pariuri-sportive/);
-    });
-  });
+  const navCases: Array<{
+    name: string;
+    click: () => Promise<void>;
+    urlPattern: RegExp;
+    notUrlPattern?: RegExp;
+  }> = [
+    {
+      name: 'Sport',
+      click: () => header.clickSportLink(),
+      urlPattern: /.*\/pariuri-sportive/,
+    },
+    {
+      name: 'Live',
+      click: () => header.clickLiveLink(),
+      urlPattern: /.*\/pariuri-sportive\/live/,
+    },
+    {
+      name: 'Supersocial',
+      click: () => header.clickSupersocialLink(),
+      urlPattern: /.*\/social\/noutati/,
+    },
+    {
+      name: 'Biletele Mele',
+      click: () => header.clickBileteleMeleLink(),
+      urlPattern: /.*\/pariurile-mele\/deschise/,
+    },
+    {
+      name: 'Casino',
+      click: () => header.clickCasinoLink(),
+      urlPattern: /.*\/casino/,
+      notUrlPattern: /.*\/casino-live/,
+    },
+    {
+      name: 'Casino Live',
+      click: () => header.clickCasinoLiveLink(),
+      urlPattern: /.*\/casino\/casino-live/,
+    },
+  ];
 
-  test('@regression - Verify Live link navigation', async ({ page }) => {
-    await allure.step('Click Live link and verify navigation', async () => {
-      await header.clickLiveLink();
-      await expect(page).toHaveURL(/.*\/pariuri-sportive\/live/);
-    });
-  });
-
-  test('@regression - Verify Supersocial link navigation', async ({ page }) => {
-    await allure.step('Click Supersocial link and verify navigation', async () => {
-      await header.clickSupersocialLink();
-      await expect(page).toHaveURL(/.*\/social\/noutati/);
-    });
-  });
-
-  test('@regression - Verify Biletele Mele link navigation', async ({ page }) => {
-    await allure.step('Click Biletele Mele link and verify navigation', async () => {
-      await header.clickBileteleMeleLink();
-      await expect(page).toHaveURL(/.*\/pariurile-mele\/deschise/);
-    });
-  });
-
-  test('@regression - Verify Casino link navigation', async ({ page }) => {
-    await allure.step('Click Casino link and verify navigation', async () => {
-      await header.clickCasinoLink();
-      await expect(page).toHaveURL(/.*\/casino/);
-      await expect(page).not.toHaveURL(/.*\/casino-live/);
-    });
-  });
-
-  test('@regression - Verify Casino Live link navigation', async ({ page }) => {
-    await allure.step('Click Casino Live link and verify navigation', async () => {
-      await header.clickCasinoLiveLink();
-      await expect(page).toHaveURL(/.*\/casino\/casino-live/);
+  navCases.forEach(({ name, click, urlPattern, notUrlPattern }) => {
+    test(`@regression - Verify ${name} link navigation`, async ({ page }) => {
+      await test.step(`Click ${name} link and verify navigation`, async () => {
+        await click();
+        await expect(page).toHaveURL(urlPattern);
+        if (notUrlPattern) {
+          await expect(page).not.toHaveURL(notUrlPattern);
+        }
+      });
     });
   });
 
   test('@regression - Verify Search icon is functional', async ({ page }) => {
-    await allure.step('Click Search icon', async () => {
+    await test.step('Click Search icon', async () => {
       await header.clickSearchIcon();
-      // Use element wait instead of fixed timeout
-      // Wait for search input or modal to appear (update selector based on actual implementation)
       try {
         await page.locator('input[type="search"], [data-testid*="search"], .search-input').first().waitFor({
           state: 'visible',
           timeout: 2000,
         });
-      } catch {
-        // Search might work differently, continue
-      }
+      } catch {}
     });
   });
 
   test('@regression - Verify User Profile icon is functional', async ({ page }) => {
-    await allure.step('Click User Profile icon', async () => {
+    await test.step('Click User Profile icon', async () => {
       await header.clickUserProfileIcon();
-      // Use element wait instead of fixed timeout
-      // Wait for profile menu to appear (update selector based on actual implementation)
       try {
         await page.locator('[data-testid*="profile-menu"], .user-menu, .profile-dropdown').first().waitFor({
           state: 'visible',
           timeout: 2000,
         });
-      } catch {
-        // Profile menu might work differently, continue
-      }
+      } catch {}
     });
   });
 
   test('@regression - Verify Register button is functional', async ({ page }) => {
-    await allure.step('Click Register button', async () => {
+    await test.step('Click Register button', async () => {
       await header.clickRegisterButton();
-      // Use element wait instead of fixed timeout
-      // Wait for registration modal/form to appear (update selector based on actual implementation)
       try {
         await page.locator('[data-testid*="register"], .register-modal, .registration-form').first().waitFor({
           state: 'visible',
           timeout: 2000,
         });
       } catch {
-        // Registration might navigate to different page
         await page.waitForLoadState('domcontentloaded');
       }
     });
   });
 
   test('@regression - Verify Login button is functional', async ({ page }) => {
-    await allure.step('Click Login button', async () => {
+    await test.step('Click Login button', async () => {
       await header.clickLoginButton();
-      // Use element wait instead of fixed timeout
-      // Wait for login modal/form to appear (update selector based on actual implementation)
       try {
         await page.locator('[data-testid*="login"], .login-modal, .login-form').first().waitFor({
           state: 'visible',
           timeout: 2000,
         });
       } catch {
-        // Login might navigate to different page
         await page.waitForLoadState('domcontentloaded');
       }
     });

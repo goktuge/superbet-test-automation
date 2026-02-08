@@ -1,16 +1,8 @@
 import { Page } from '@playwright/test';
 
-/**
- * Console helper utilities
- * Captures and handles browser console logs
- */
 export class ConsoleHelper {
   private static logs: Array<{ type: string; message: string; timestamp: number }> = [];
 
-  /**
-   * Capture console logs
-   * @param page - Playwright page object
-   */
   static captureConsoleLogs(page: Page): void {
     page.on('console', (msg) => {
       const type = msg.type();
@@ -20,7 +12,6 @@ export class ConsoleHelper {
         message: text,
         timestamp: Date.now(),
       });
-      console.log(`[Browser ${type}] ${text}`);
     });
   }
 

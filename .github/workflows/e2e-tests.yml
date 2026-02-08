@@ -41,9 +41,11 @@ jobs:
         browser: [chromium, firefox, webkit]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          submodules: false
+        run: |
+          git clone --no-recurse-submodules --depth 1 "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" .
+          git fetch --depth 1 origin ${{ github.sha }}
+          git checkout ${{ github.sha }}
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -83,9 +85,11 @@ jobs:
         browser: [chromium, firefox, webkit]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          submodules: false
+        run: |
+          git clone --no-recurse-submodules --depth 1 "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" .
+          git fetch --depth 1 origin ${{ github.sha }}
+          git checkout ${{ github.sha }}
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -125,9 +129,11 @@ jobs:
         browser: [chromium, firefox, webkit]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          submodules: false
+        run: |
+          git clone --no-recurse-submodules --depth 1 "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" .
+          git fetch --depth 1 origin ${{ github.sha }}
+          git checkout ${{ github.sha }}
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -169,9 +175,12 @@ jobs:
     if: always()
 
     steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: false
+      - name: Checkout code
+        run: |
+          git clone --no-recurse-submodules --depth 1 "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" .
+          git fetch --depth 1 origin ${{ github.sha }}
+          git checkout ${{ github.sha }}
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - uses: actions/download-artifact@v4
         with:
@@ -185,11 +194,10 @@ jobs:
             -exec cp {} allure-results/ \; 2>/dev/null || true
 
       - name: Checkout gh-pages for history
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: gh-pages
-          submodules: false
+        run: |
+          git clone --no-recurse-submodules --depth 20 "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
+          cd gh-pages && git checkout gh-pages 2>/dev/null || git checkout -b gh-pages
+          git config --global --add safe.directory "$GITHUB_WORKSPACE/gh-pages"
         continue-on-error: true
 
       - name: Generate Allure report with history
@@ -198,12 +206,12 @@ jobs:
           allure_results: allure-results
           allure_report: allure-report
           gh_pages: gh-pages
-          allure_history: allure-history
+          allure_history: report
           keep_reports: 20
-    
+
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: report
           publish_branch: gh-pages         

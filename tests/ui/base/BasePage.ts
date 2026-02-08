@@ -26,16 +26,8 @@ export abstract class BasePage {
    */
   abstract navigate(path?: string): Promise<void>;
 
-  /**
-   * Wait for page to load
-   * Uses modern Playwright patterns: domcontentloaded + element wait
-   * Avoids networkidle (deprecated for live sites like Superbet)
-   */
   async waitForPageLoad(): Promise<void> {
-    // Wait for DOM to be ready
     await this.page.waitForLoadState('domcontentloaded');
-    // For live betting sites, wait for a key element instead of network idle
-    // This is more reliable as Superbet has continuous network activity
   }
 
   /**
