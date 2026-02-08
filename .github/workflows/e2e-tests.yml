@@ -126,8 +126,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          submodules: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -198,11 +196,12 @@ jobs:
           allure_results: allure-results
           allure_report: allure-report
           gh_pages: gh-pages
-          allure_history: report
+          allure_history: allure-history
           keep_reports: 20
-
-      - uses: peaceiris/actions-gh-pages@v3
+    
+      - name: Deploy to GH Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: report
+          publish_dir: .
           publish_branch: gh-pages         
