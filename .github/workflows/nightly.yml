@@ -1,80 +1,80 @@
-name: Nightly Tests
+# name: Nightly Tests
 
-on:
-  schedule:
-    - cron: '55 22 * * *'
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: '55 22 * * *'
+#   workflow_dispatch:
 
-env:
-  INFLUX_URL: ${{ secrets.INFLUX_CLOUD_URL }}
-  INFLUX_TOKEN: ${{ secrets.INFLUX_CLOUD_TOKEN }}
-  INFLUX_ORG: ${{ secrets.INFLUX_CLOUD_ORG }}
-  INFLUX_BUCKET: test-metrics
+# env:
+#   INFLUX_URL: ${{ secrets.INFLUX_CLOUD_URL }}
+#   INFLUX_TOKEN: ${{ secrets.INFLUX_CLOUD_TOKEN }}
+#   INFLUX_ORG: ${{ secrets.INFLUX_CLOUD_ORG }}
+#   INFLUX_BUCKET: test-metrics
 
-jobs:
-  nightly-regression:
-    name: Nightly Regression - ${{ matrix.browser }}
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        browser: [chromium, firefox, webkit]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+# jobs:
+#   nightly-regression:
+#     name: Nightly Regression - ${{ matrix.browser }}
+#     runs-on: ubuntu-latest
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         browser: [chromium, firefox, webkit]
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '20'
+#           cache: 'npm'
       
-      - name: Install dependencies
-        run: npm ci
+#       - name: Install dependencies
+#         run: npm ci
       
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps ${{ matrix.browser }}
+#       - name: Install Playwright browsers
+#         run: npx playwright install --with-deps ${{ matrix.browser }}
       
-      - name: Run regression tests
-        run: npm run test:ui:regression -- --project=${{ matrix.browser }}
-        continue-on-error: true
-        env:
-          ENV: prod
-          BASE_URL: ${{ secrets.PROD_URL || 'https://superbet.ro' }}
-          HEADLESS: true
+#       - name: Run regression tests
+#         run: npm run test:ui:regression -- --project=${{ matrix.browser }}
+#         continue-on-error: true
+#         env:
+#           ENV: prod
+#           BASE_URL: ${{ secrets.PROD_URL || 'https://superbet.ro' }}
+#           HEADLESS: true
       
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: allure-results-${{ matrix.browser }}
-          path: allure-results/
+#       - uses: actions/upload-artifact@v4
+#         if: always()
+#         with:
+#           name: allure-results-${{ matrix.browser }}
+#           path: allure-results/
 
-  report:
-     name: Generate Allure Report
-     runs-on: ubuntu-latest
-     needs: [smoke-tests, regression-tests, manual-trigger]
-     if: always()
+#   report:
+#      name: Generate Allure Report
+#      runs-on: ubuntu-latest
+#      needs: [smoke-tests, regression-tests, manual-trigger]
+#      if: always()
 
-     steps:
-       - uses: actions/checkout@v4
+#      steps:
+#        - uses: actions/checkout@v4
 
-       - uses: actions/download-artifact@v4
-         with:
-           path: artifacts
+#        - uses: actions/download-artifact@v4
+#          with:
+#            path: artifacts
 
-       - name: Merge Allure results
-         run: |
-           mkdir -p allure-results
-           find artifacts -type f -name '*.json' -exec cp {} allure-results/ \;
+#        - name: Merge Allure results
+#          run: |
+#            mkdir -p allure-results
+#            find artifacts -type f -name '*.json' -exec cp {} allure-results/ \;
 
-       - uses: simple-elf/allure-report-action@master
-         with:
-           allure_results: allure-results
-           allure_history: allure-history
-           keep_reports: 20
+#        - uses: simple-elf/allure-report-action@master
+#          with:
+#            allure_results: allure-results
+#            allure_history: allure-history
+#            keep_reports: 20
 
-       - uses: peaceiris/actions-gh-pages@v3
-         with:
-           github_token: ${{ secrets.GITHUB_TOKEN }}
-           publish_dir: allure-history
-           publish_branch: gh-pages
+#        - uses: peaceiris/actions-gh-pages@v3
+#          with:
+#            github_token: ${{ secrets.GITHUB_TOKEN }}
+#            publish_dir: allure-history
+#            publish_branch: gh-pages
